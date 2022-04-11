@@ -1,0 +1,33 @@
+@import "../../../styles/abstracts/mixins";
+
+.header-mobile {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    padding: toRem(20);
+
+    &--active {
+      border-bottom:  toRem(1) solid var(--gray-200);
+    }
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__background {
+    position: absolute;
+    top: - toRem(360);
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: toRem(428);
+    background-color: var(--white);
+    border-radius: 0 0 toRem(20) toRem(20);
+    box-shadow: var(--shadow-sm);
+    border: toRem(1) solid var(--gray-100);
+  }
+}

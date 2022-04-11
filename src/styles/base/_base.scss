@@ -11,6 +11,9 @@ html{
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--gray-50);
+}
 
 textarea:focus, input:focus{
     outline: none;
@@ -23,7 +26,7 @@ button:focus {
     outline: none;
 }
 
-button:active {
+button:active, a:active {
     transition-duration: 0.2s;
     transform: scale(0.8);
 }
@@ -34,4 +37,5 @@ ul {
 
 a {
     text-decoration: none;
+    color: inherit;
 }

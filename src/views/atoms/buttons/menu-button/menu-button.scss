@@ -1,0 +1,12 @@
+@import "../../../../styles/abstracts/mixins";
+
+.menu-button {
+  background: none;
+	border: none;
+  
+  svg {
+    stroke: var(--gray-600);
+    width: toRem(24);
+    height: toRem(24);
+  }
+}

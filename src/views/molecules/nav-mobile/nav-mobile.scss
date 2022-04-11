@@ -1,0 +1,18 @@
+
+@import "../../../styles/abstracts/mixins";
+.nav-mobile {
+  padding: toRem(20);
+  pointer-events: none;
+  opacity: 0;
+
+  &--clickable {
+    pointer-events: initial;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(8);
+    list-style: none;
+  }
+}
