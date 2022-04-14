@@ -1,0 +1,12 @@
+@import "../../../styles/abstracts/mixins";
+
+.nav-item-desktop {
+  &__link {
+    color: var(--gray-600);
+    padding-bottom: toRem(4);
+
+    &--active {
+      border-bottom: toRem(2) solid var(--red-600);
+    }
+  }
+}

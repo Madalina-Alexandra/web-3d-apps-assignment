@@ -1,0 +1,8 @@
+@import "../../../styles/abstracts/mixins";
+.nav-desktop {
+  
+  &__ul {
+    display: flex;
+    gap: toRem(32);
+  }
+}

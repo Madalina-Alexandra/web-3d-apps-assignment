@@ -1,6 +1,6 @@
 import React from 'react';
 import './nav-mobile.scss';
-import NavItemMobile from '../../atoms/nav-items-mobile';
+import NavItemMobile from '../../atoms/nav-item-mobile';
 import HomeIcon from '../../atoms/icons/home.icon';
 import CubeIcon from '../../atoms/icons/cube-icon';
 import BookIcon from '../../atoms/icons/book-icon';

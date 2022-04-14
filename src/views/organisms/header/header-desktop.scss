@@ -1,0 +1,21 @@
+@import "../../../styles/abstracts/mixins";
+
+.header-desktop {
+  display: none;
+  padding: toRem(20);
+  box-shadow: var(--shadow-sm);
+
+  @include respond(md) {
+    display: block;
+  }
+
+  &__container {
+    display: flex;
+    max-width: toRem(1280);
+    margin:0 auto;
+  }
+
+  &__logo-wrapper {
+    margin-right: auto;
+  }
+}

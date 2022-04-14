@@ -2,14 +2,13 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import './styles/main.scss';
-
-import HeaderMobile from './views/organisms/header-mobile';
+import Header from './views/organisms/header';
 import Home from './views/pages/home';
 
 const App = () => {
   return (
     <div className="App">
-      <HeaderMobile />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>

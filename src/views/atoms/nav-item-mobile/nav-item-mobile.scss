@@ -1,0 +1,25 @@
+@import "../../../styles/abstracts/mixins";
+.nav-item-mobile {
+  display: flex;
+  align-items: center;
+  gap: toRem(8);
+  color: var(--gray-600);
+  font-weight: 700;
+  border-radius: toRem(8);
+  padding: toRem(8);
+
+  svg {
+    stroke: var(--gray-600);
+    height: toRem(32);
+    width: toRem(32);
+  }
+
+  &--active {
+    background-color: var(--red-50);
+    color: var(--red-700);
+
+    svg {
+      stroke: var(--red-700);
+    }
+  }
+}
