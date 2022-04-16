@@ -3,6 +3,7 @@
 .menu-button {
   background: none;
 	border: none;
+  pointer-events: auto;
   
   svg {
     stroke: var(--gray-600);
