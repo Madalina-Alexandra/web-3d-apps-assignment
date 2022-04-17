@@ -1,0 +1,49 @@
+@import "../../../styles/abstracts/mixins";
+
+.loading-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: url("../../../images/loading-page-bg-mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include respond(md) {
+    background: url("../../../images/loading-page-bg-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: toRem(20);
+  }
+
+  &__icon {
+    .loading-icon {
+      position: relative;
+      height: auto;
+      width: 100%;
+      transform-origin: 50% 50%;
+      transform: rotate(-15deg);
+    }
+  }
+
+  &__paragraph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include text-style(text-lg);
+    font-weight: 700;
+    color: var(--gary-700);
+    text-align: center;
+  }
+
+  &__span {
+    display: block;
+  }
+}

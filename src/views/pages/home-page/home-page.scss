@@ -1,6 +1,6 @@
 @import "../../../styles/abstracts/mixins";
 
-.home {
+.home-page {
   margin-top: toRem(64);
   width: 100%;
   height: 100vh;
@@ -20,9 +20,6 @@
       padding: 0 toRem(32);
       max-width: toRem(1280);
       margin: 0 auto;
-      // background: url("../../../images/hero-desktop-bg.svg");
-      // background-size: cover;
-      // background-repeat: no-repeat;
     }
   }
 }
