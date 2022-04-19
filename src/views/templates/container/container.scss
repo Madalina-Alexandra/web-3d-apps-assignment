@@ -1,0 +1,11 @@
+@import "../../../styles/abstracts/mixins";
+
+.container {
+  padding: 0 toRem(20);
+  max-width: toRem(1280);
+  margin: 0 auto;
+
+  @include respond(md) {
+    padding: 0 toRem(32);
+  }
+}

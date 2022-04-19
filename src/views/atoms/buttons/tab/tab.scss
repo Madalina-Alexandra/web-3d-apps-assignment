@@ -1,0 +1,19 @@
+@import "../../../../styles/abstracts/mixins";
+
+.tab {
+  padding: toRem(12) toRem(20);
+  border: none;
+  @include text-style(text-base);
+  font-weight: 400;
+  color: var(--gray-400);
+  border-radius: toRem(8) toRem(8) 0 0;
+  background-color: var(--gray-200);
+
+  &--active {
+    color: var(--gray-500);
+    background-color: var(--gray-100);
+    border-top: toRem(2) solid var(--gray-200);
+    border-left: toRem(2) solid var(--gray-200);
+    border-right: toRem(2) solid var(--gray-200);
+  }
+}

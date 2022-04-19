@@ -1,0 +1,45 @@
+@import "../../../styles/abstracts/mixins";
+
+.scene-controls {
+  width: 100%;
+
+  &__tabs {
+    display: flex;
+    gap: toRem(4);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(24);
+    padding: toRem(32) toRem(20);
+    padding-bottom: toRem(180);
+    height: 100%;
+    border: toRem(2) solid var(--gray-200);
+    border-radius: 0 toRem(20) toRem(20) toRem(20);
+    background-color: var(--gray-100);
+
+    @include respond(lg) {
+      margin-bottom: 0;
+      height: auto;
+    }
+  }
+
+  &__control-group {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(8);
+  }
+
+  &__control-group-span {
+    @include text-style(text-base);
+    color: var(--gray-800);
+    font-weight: 600;
+  }
+
+  &__flavor-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(20);
+  }
+}

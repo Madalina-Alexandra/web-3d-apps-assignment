@@ -1,7 +1,3 @@
-
-
-
-
 @mixin respond($breakpoint) {
   @if $breakpoint == xs {
     @media only screen and (min-width: 375px) {
@@ -44,41 +40,45 @@
 */
 
 @mixin text-style($text) {
-    @if $text == text-sm {
-      font-size: 0.875rem;
-      line-height: 1.25rem;
-    }
-    @if $text == text-base {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-    @if $text == text-lg {
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-    }
-    @if $text == text-xl {
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-    }
-    @if $text == text-2xl {
-      font-size: 1.5rem;
-      line-height: 2rem;
-    }
-    @if $text == text-3xl {
-      font-size: 1.875rem;
-      line-height: 2.25rem;
-    }
-    @if $text == text-4xl {
-      font-size: 2.25rem;
-      line-height: 2.5rem;
-    }
-    @if $text == text-5xl {
-      font-size: 3rem;
-      line-height: 1;
-    }
+  @if $text == text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  @if $text == text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  @if $text == text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  @if $text == text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  @if $text == text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  @if $text == text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  @if $text == text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  @if $text == text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  @if $text == text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }
 
 @function toRem($value) {
-    $remValue: ($value / 16) + rem; 
-    @return $remValue;
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
 }

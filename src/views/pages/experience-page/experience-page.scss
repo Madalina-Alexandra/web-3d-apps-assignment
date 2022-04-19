@@ -1,0 +1,51 @@
+@import "../../../styles/abstracts/mixins";
+
+.experience-page {
+  margin-top: toRem(70);
+
+  @include respond(md) {
+    margin-top: 0;
+  }
+
+  @include respond(lg) {
+    display: flex;
+  }
+
+  &__canvas-container {
+    position: relative;
+    width: 100%;
+    height: calc(50vh - 70px);
+
+    @include respond(lg) {
+      height: calc(100vh - 68px);
+    }
+  }
+
+  &__tool-tip {
+    position: absolute;
+    left: 50%;
+    bottom: toRem(20);
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: toRem(4);
+
+    svg {
+      stroke: var(--gray-400);
+      width: toRem(32);
+      height: toRem(32);
+    }
+  }
+
+  &__tool-tip-text {
+    text-align: center;
+    color: var(--gray-400);
+  }
+
+  &__canvas {
+    background-color: var(--gray-200);
+    width: 100%;
+    height: 100%;
+  }
+}
