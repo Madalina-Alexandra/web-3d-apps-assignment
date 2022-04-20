@@ -15,5 +15,10 @@
     border-top: toRem(2) solid var(--gray-200);
     border-left: toRem(2) solid var(--gray-200);
     border-right: toRem(2) solid var(--gray-200);
+    margin-bottom: - toRem(2);
+
+    @include respond(lg) {
+      background-color: var(--white);
+    }
   }
 }

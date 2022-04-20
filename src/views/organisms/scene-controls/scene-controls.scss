@@ -3,6 +3,11 @@
 .scene-controls {
   width: 100%;
 
+  @include respond(lg) {
+    margin-top: toRem(64);
+    max-width: toRem(384);
+  }
+
   &__tabs {
     display: flex;
     gap: toRem(4);
@@ -20,8 +25,10 @@
     background-color: var(--gray-100);
 
     @include respond(lg) {
-      margin-bottom: 0;
       height: auto;
+      padding-bottom: toRem(32);
+      background-color: var(--white);
+      box-shadow: var(--shadow-xs);
     }
   }
 
