@@ -1,19 +1,21 @@
 @import "../../../styles/abstracts/mixins";
 
 .experience-page {
-  margin-top: toRem(70);
+  &__container {
+    margin-top: toRem(70);
 
-  @include respond(md) {
-    margin-top: 0;
-  }
+    @include respond(md) {
+      margin-top: 0;
+    }
 
-  @include respond(lg) {
-    display: flex;
-    flex-direction: row-reverse;
+    @include respond(lg) {
+      display: flex;
+      flex-direction: row-reverse;
 
-    padding: 0 toRem(32);
-    max-width: toRem(1280);
-    margin: 0 auto;
+      padding: 0 toRem(32);
+      max-width: toRem(1280);
+      margin: 0 auto;
+    }
   }
 
   &__canvas-container {

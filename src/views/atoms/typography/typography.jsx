@@ -11,13 +11,18 @@ HeadingXl.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const Paragraph = ({ children }) => (
-  <p className="paragraph">{children}</p>
+export const Paragraph = ({ children, onDark }) => (
+  <p className={`paragraph ${onDark ? "paragraph--on-dark" : ""}`}>{children}</p>
 );
 
 Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
+  onDark: PropTypes.bool,
 };
+
+Paragraph.defaultProps = {
+  onDark: false,
+}
 
 export const StandardLink = ({ to, children, bold }) => (
   <Link to={to} className={`link ${bold ? "link--bold" : ""}`}>{children}</Link>

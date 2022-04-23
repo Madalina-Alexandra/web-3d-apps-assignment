@@ -18,17 +18,15 @@
     flex-direction: column;
     gap: toRem(24);
     padding: toRem(32) toRem(20);
-    padding-bottom: toRem(180);
     height: 100%;
     border: toRem(2) solid var(--gray-200);
-    border-radius: 0 toRem(20) toRem(20) toRem(20);
     background-color: var(--gray-100);
 
     @include respond(lg) {
       height: auto;
-      padding-bottom: toRem(32);
       background-color: var(--white);
       box-shadow: var(--shadow-xs);
+      border-radius: 0 toRem(20) toRem(20) toRem(20);
     }
   }
 

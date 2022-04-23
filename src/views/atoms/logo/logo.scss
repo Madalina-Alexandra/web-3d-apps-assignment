@@ -5,4 +5,8 @@
   font-weight: 700;
   @include text-style(text-lg);
   pointer-events: auto;
+
+  &--on-dark {
+    color: var(--gray-50);
+  }
 }
