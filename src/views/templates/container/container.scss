@@ -1,11 +1,21 @@
 @import "../../../styles/abstracts/mixins";
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(48);
   padding: 0 toRem(20);
-  max-width: toRem(1280);
-  margin: 0 auto;
+  // max-width: toRem(1280);
+  max-width: toRem(1024);
+  margin-top: toRem(134);
+  margin-bottom: toRem(64);
+  margin-left: auto;
+  margin-right: auto;
 
   @include respond(md) {
+    padding: 0 toRem(32);
+    margin-top: toRem(80);
+    margin-bottom: toRem(80);
     padding: 0 toRem(32);
   }
 }

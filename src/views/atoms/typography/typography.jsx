@@ -3,16 +3,33 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "./typography.scss";
 
-export const HeadingXl = ({ children }) => (
-  <h1 className="heading-xl">{children}</h1>
+export const Heading4xl = ({ children, noMargin }) => (
+  <h1 className={`heading-4xl ${noMargin ? "heading-4xl--no-margin" : ""}`}>
+    {children}
+  </h1>
 );
 
-HeadingXl.propTypes = {
+Heading4xl.propTypes = {
+  children: PropTypes.node.isRequired,
+  noMargin: PropTypes.bool,
+};
+
+Heading4xl.defaultProps = {
+  noMargin: false,
+};
+
+export const HeadingLg = ({ children }) => (
+  <h2 className="heading-lg">{children}</h2>
+);
+
+HeadingLg.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
 export const Paragraph = ({ children, onDark }) => (
-  <p className={`paragraph ${onDark ? "paragraph--on-dark" : ""}`}>{children}</p>
+  <p className={`paragraph ${onDark ? "paragraph--on-dark" : ""}`}>
+    {children}
+  </p>
 );
 
 Paragraph.propTypes = {
@@ -22,18 +39,41 @@ Paragraph.propTypes = {
 
 Paragraph.defaultProps = {
   onDark: false,
-}
+};
 
-export const StandardLink = ({ to, children, bold }) => (
-  <Link to={to} className={`link ${bold ? "link--bold" : ""}`}>{children}</Link>
-);
+export const StandardLink = ({ to, children, bold, router, dark }) => {
+  if (router)
+    return (
+      <Link
+        to={to}
+        className={`link ${bold ? "link--bold" : ""} ${
+          dark ? "link--dark" : ""
+        }`}
+      >
+        {children}
+      </Link>
+    );
+
+  return (
+    <a
+      href={to}
+      className={`link ${bold ? "link--bold" : ""} ${dark ? "link--dark" : ""}`}
+    >
+      {children}
+    </a>
+  );
+};
 
 StandardLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   bold: PropTypes.bool.isRequired,
+  nonRouter: PropTypes.bool.isRequired,
+  dark: PropTypes.bool.isRequired,
 };
 
 StandardLink.defaultProps = {
   bold: false,
+  nonRouter: false,
+  dark: false,
 };

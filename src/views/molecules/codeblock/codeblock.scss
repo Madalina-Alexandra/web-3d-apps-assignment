@@ -1,0 +1,9 @@
+@import '../../../styles/abstracts/mixins';
+
+.codeblock {
+  padding: toRem(12);
+  border: toRem(1) solid var(--gray-200);
+  background-color: var(--white);
+  border-radius: toRem(8);
+  color: var(--gray-500);
+}

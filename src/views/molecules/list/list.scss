@@ -1,0 +1,24 @@
+@import "../../../styles/abstracts/mixins";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(16);
+
+  &__item {
+    display: flex;
+    gap: toRem(8);
+
+    &::before {
+      content: '';
+      flex: none;
+      display: inline-block;
+      height: toRem(12);
+      width: toRem(12);
+      background-color: var(--red-400);
+      border-radius: toRem(2);
+      margin-top: toRem(5);
+    }
+  }
+
+}

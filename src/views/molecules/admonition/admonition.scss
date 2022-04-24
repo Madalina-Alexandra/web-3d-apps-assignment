@@ -1,0 +1,52 @@
+@import "../../../styles/abstracts/mixins";
+
+.admonition {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(12);
+  padding: toRem(12);
+  border: toRem(1) solid var(--light-blue-500);
+  border-radius: toRem(8);
+  background-color: var(--light-blue-50);
+
+  &--warning {
+    border: toRem(1) solid var(--yellow-500);
+    background-color: var(--yellow-50);
+
+    .admonition__title {
+      color: var(--yellow-700);
+    }
+
+    .admonition__paragraph {
+      color: var(--yellow-600);
+    }
+
+    .admonition__link {
+      color: var(--yellow-700);
+    }
+  }
+
+  &__title {
+    display: flex;
+    gap: toRem(8);
+    align-items: center;
+    color: var(--light-blue-700);
+    @include text-style(text-base);
+    font-weight: 700;
+
+    svg {
+      height: toRem(32);
+      width: toRem(32);
+    }
+  }
+
+  &__paragraph {
+    color: var(--light-blue-600);
+    @include text-style(text-base);
+  }
+
+  &__link {
+    color: var(--light-blue-700);
+    font-weight: 700;
+  }
+}

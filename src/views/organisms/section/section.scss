@@ -1,0 +1,7 @@
+@import '../../../styles/abstracts/mixins';
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(12);
+}

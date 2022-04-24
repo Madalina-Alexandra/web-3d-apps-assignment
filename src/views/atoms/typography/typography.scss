@@ -1,9 +1,20 @@
 @import "../../../styles/abstracts/mixins";
 
-.heading-xl {
+.heading-4xl {
   color: var(--gray-800);
   @include text-style(text-4xl);
   font-weight: 800;
+  margin-bottom: toRem(8);
+
+  &--no-margin {
+    margin: 0;
+  }
+}
+
+.heading-lg {
+  color: var(--gray-700);
+  @include text-style(text-lg);
+  font-weight: 700;
 }
 
 .paragraph {
@@ -22,6 +33,10 @@
   font-weight: 400;
 
   &--bold {
-    font-weight: 500;
+    font-weight: 700;
+  }
+
+  &--dark {
+    color: var(--gray-700);
   }
 }

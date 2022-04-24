@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./hero.scss";
 import gsap from "gsap";
 import {
-  HeadingXl,
+  Heading4xl,
   Paragraph,
   StandardLink,
 } from "../../atoms/typography/typography";
@@ -43,16 +43,16 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero__content">
-        <HeadingXl>
+        <Heading4xl noMargin>
           <span className="hero__span">Check out</span> your favorite drinks
-        </HeadingXl>
+        </Heading4xl>
         <Paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
           nec, neque
         </Paragraph>
         <div className="hero__buttons">
           <PrimaryButton onClick={handleNavigate}>Start</PrimaryButton>
-          <StandardLink to="/about">See docs</StandardLink>
+          <StandardLink router to="/about">See docs</StandardLink>
         </div>
       </div>
       <div className="hero__img-container">
