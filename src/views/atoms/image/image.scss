@@ -1,0 +1,14 @@
+@import "../../../styles/abstracts/mixins";
+
+.image {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(16);
+
+  &__image {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: toRem(20);
+  }
+}

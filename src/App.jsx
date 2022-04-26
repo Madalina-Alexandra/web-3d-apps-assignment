@@ -7,6 +7,7 @@ import HomePage from "./views/pages/home-page";
 import LoadingPage from "./views/pages/loading-page/loading-page";
 import ExperiencePage from "./views/pages/experience-page";
 import AboutPage from "./views/pages/about-page";
+import GalleryPage from "./views/pages/gallery-page";
 import LinksPage from "./views/pages/links-page";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/3d-experience" element={<ExperiencePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/links" element={<LinksPage />} />
         </Routes>
       </MainAppProvider>
