@@ -1,8 +1,42 @@
+@import '../../../styles/abstracts/mixins';
+
 .gallery {
   &__container {
 
     &--mobile {
-      
+      display: flex;
+      flex-direction: column;
+      gap: toRem(24);
+
+      @include respond(md) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include respond(md) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(toRem(304), 1fr));
+        gap: toRem(24);
+        margin-bottom: toRem(48);
+      }
+    }
+  }
+
+  &__carousel-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: toRem(8);
+  }
+
+  &__load-more-btn {
+    display: none;
+
+    @include respond(md) {
+      display: flex;
+      justify-content: center;
     }
   }
 }

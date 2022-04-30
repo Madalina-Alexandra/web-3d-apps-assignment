@@ -1,0 +1,12 @@
+@import "../../../../styles/abstracts/mixins"; 
+
+.secondary-btn {
+  border-radius: toRem(8);
+  background-color: var(--white);
+  color: var(--gray-500);
+  @include text-style(text-base);
+  font-weight: 600;
+  padding: toRem(8) toRem(48);
+  box-shadow: var(--shadow-xs);
+  border: roRem(1) solid var(--gray-200);
+}

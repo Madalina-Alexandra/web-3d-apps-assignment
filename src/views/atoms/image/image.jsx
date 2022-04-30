@@ -5,7 +5,7 @@ import './image.scss';
 const Image = ({ alt, src, caption }) => (
   <div className="image">
     <img className="image__image" alt={alt} src={src} />
-    <caption className="image__caption">{caption}</caption>
+    <figcaption className="image__figcaption">{caption}</figcaption>
   </div>
 );
 

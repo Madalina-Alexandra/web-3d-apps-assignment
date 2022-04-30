@@ -1,0 +1,19 @@
+@import "../../../../styles/abstracts/mixins";
+
+.chevron-button {
+  background-color: var(--red-600);
+  border: none;
+  padding: toRem(8);
+  border-radius: toRem(8);
+
+  &:disabled,
+  &[disabled]{
+    background-color: var(--gray-200);
+  }
+
+  svg {
+    width: toRem(32);
+    height: toRem(32);
+    stroke: var(--white);
+  }
+}

@@ -1,23 +1,95 @@
-import React, {useState} from 'react';
-import './gallery.scss'
-import Image from '../../atoms/image';
-import galleryImageOne from '../../../images/gallery-img-1.jpg';
+import React, { useState, useEffect } from "react";
+import "./gallery.scss";
+import Image from "../../atoms/image";
+import galleryImage1 from "../../../images/gallery-img-1.jpg";
+import galleryImage2 from "../../../images/gallery-img-2.jpg";
+import galleryImage3 from "../../../images/gallery-img-3.jpg";
+import galleryImage4 from "../../../images/gallery-img-1.jpg";
+import galleryImage5 from "../../../images/gallery-img-2.jpg";
+import galleryImage6 from "../../../images/gallery-img-3.jpg";
+import galleryImage7 from "../../../images/gallery-img-1.jpg";
+import galleryImage8 from "../../../images/gallery-img-2.jpg";
+import galleryImage9 from "../../../images/gallery-img-3.jpg";
+import ChevronButton from "../../atoms/buttons/chevron-button";
+import SecondaryButton from "../../atoms/buttons/secondary-button";
 
 const Gallery = () => {
+  const images = [
+    { caption: "Glaceau render", src: galleryImage1 },
+    { caption: "Costa render", src: galleryImage2 },
+    { caption: "Coke render", src: galleryImage3 },
+    { caption: "Glaceau render", src: galleryImage4},
+    { caption: "Costa render", src: galleryImage5 },
+    { caption: "Coke render", src: galleryImage6 },
+    { caption: "Glaceau render", src: galleryImage7 },
+    { caption: "Costa render", src: galleryImage8 },
+    { caption: "Coke render", src: galleryImage9 },
+  ];
+
+  // For mobile
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(1);
+  const currentImage = [...images].slice(startIndex, endIndex)[0];
+  const handleNextImage = () => {
+    if (startIndex < images.length - 1) {
+      setStartIndex(startIndex + 1);
+      setEndIndex(endIndex + 1);
+    }
+  };
+  const handlePreviousImage = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+      setEndIndex(endIndex - 1);
+    }
+  };
+
+  // For Desktop
+  const [amountOfImagesToShow, setAmountOfImagesToShow] = useState(6);
+  const handleLoadMOre = () => {
+    if(amountOfImagesToShow < images.length - 1) {
+      setAmountOfImagesToShow(amountOfImagesToShow + 6)
+    }
+  }
 
   return (
     <div className="gallery">
+      {/* Mobile */}
       <div className="gallery__container gallery__container--mobile">
         <Image
-          src={galleryImageOne}
-          alt="Glaceau render"
-          caption="Glaceau render"
+          src={currentImage.src}
+          alt={currentImage.caption}
+          caption={currentImage.caption}
         />
+        <div className="gallery__carousel-buttons">
+          <ChevronButton
+            disabled={startIndex === 0}
+            onClick={handlePreviousImage}
+          />
+          <ChevronButton
+            right
+            disabled={startIndex === images.length - 1}
+            onClick={handleNextImage}
+          />
+        </div>
       </div>
+      {/* Desktop */}
+      <div className="gallery__container gallery__container--desktop">
+        {[...images.slice(0, amountOfImagesToShow)].map((image) => (
+          <Image
+            key={crypto.randomUUID()}
+            src={image.src}
+            alt={image.caption}
+            caption={image.caption}
+          />
+        ))}
+      </div>
+      {amountOfImagesToShow < images.length && (
+      <div className="gallery__load-more-btn">
+        <SecondaryButton onClick={handleLoadMOre}>Load more</SecondaryButton>
+      </div>
+      )}
     </div>
   );
-}
+};
 
 export default Gallery;
