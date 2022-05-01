@@ -2,6 +2,7 @@ import React from "react";
 import "./experience-page.scss";
 import SceneControls from "../../organisms/scene-controls";
 import HandIcon from '../../atoms/icons/hand-icon';
+import ExperienceCanvas from "../../organisms/experience-canvas";
 import Footer from '../../organisms/footer';
 
 const ExperiencePage = () => {
@@ -13,7 +14,9 @@ const ExperiencePage = () => {
           <HandIcon />
           <p className="experience-page__tool-tip-text">Drag to interact</p>
         </div>
-        <canvas className="experience-page__canvas"></canvas>
+        <div className="experience-page__canvas">
+          <ExperienceCanvas />
+        </div>
       </div>
       <SceneControls />
       </div>
