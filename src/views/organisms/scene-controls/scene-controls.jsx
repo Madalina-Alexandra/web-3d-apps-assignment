@@ -1,81 +1,102 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import "./scene-controls.scss";
+import { MainAppModel } from "../../../models/main.model";
 import Tab from "../../atoms/buttons/tab";
 import FlavorButton from "../../atoms/buttons/flavor-button";
 import Checkbox from "../../atoms/inputs/checkbox/checkbox";
 import Select from "../../atoms/select";
 
 const SceneControls = () => {
+  // Get app modal
+  const { model, dispatch } = useContext(MainAppModel);
+
+  const {
+    name,
+    flavors,
+    selectedFlavor,
+    showWireFrame,
+    lightIntensity,
+    lightColor,
+    cameraPosition,
+  } = model.current3DModel;
+
+  // This handles changing the model
+  const handleChangeModel = (model) => {
+    dispatch({
+      type: "SET_CURRENT_MODEL",
+      payload: model,
+    });
+  };
+
+  // This handle changing the flavor
+  const handleSelectedFlavor = (flavor) =>
+    dispatch({ type: "SET_SELECTED_FLAVOR", payload: flavor });
+
   // This handles showing showing the wireframe
-  const [showWireframe, setShowWireframe] = useState(false);
   const handleShowWireframe = () => {
-    setShowWireframe(!showWireframe);
+    dispatch({ type: "SET_SHOW_WIRE_FRAME", payload: !showWireFrame });
   };
 
   // This handles changing the light color
-  const [lightColor, setLightColor] = useState("white");
   const handleColorLightChange = (e) => {
-    setLightColor(e.target.value);
+    dispatch({ type: "SET_LIGHT_COLOR", payload: e.target.value });
   };
 
-  // This handles changing the light color
-  const [lightIntensity, setIntensity] = useState("100");
+  // This handles changing the light intensity
   const handleIntensityLightChange = (e) => {
-    setIntensity(e.target.value);
+    dispatch({ type: "SET_LIGHT_INTENSITY", payload: e.target.value });
   };
 
   // This handle the camera position
-  const [cameraPosition, setCameraPosition] = useState("Free control");
   const handleCameraPosition = (e) => {
-    setCameraPosition(e.target.value);
+    dispatch({ type: "SET_CAMERA_POSITION", payload: e.target.value });
   };
 
   return (
     <div className="scene-controls">
+      {/* --------- Tabs --------- */}
       <div className="scene-controls__tabs">
-        <Tab active onClick={() => console.log("Coke was clicked")}>
+        <Tab active={name === "coke"} onClick={() => handleChangeModel("coke")}>
           Coke
         </Tab>
-        <Tab onClick={() => console.log("Costa was clicked")}>Costa</Tab>
-        <Tab onClick={() => console.log("Glaceau was clicked")}>Glaceau</Tab>
+        <Tab
+          active={name === "costa"}
+          onClick={() => handleChangeModel("costa")}
+        >
+          Costa
+        </Tab>
+        <Tab
+          active={name === "glaceau"}
+          onClick={() => handleChangeModel("glaceau")}
+        >
+          Glaceau
+        </Tab>
       </div>
       <div className="scene-controls__content">
+        {/* --------- Flavor buttons --------- */}
         <div className="scene-controls__control-group">
           <span className="scene-controls__control-group-span">Flavors:</span>
           <div className="scene-controls__flavor-buttons">
-            <FlavorButton
-              active
-              onClick={() => console.log("Original was clicked")}
-              color="var(--red-600)"
-            >
-              Original
-            </FlavorButton>
-            <FlavorButton
-              onClick={() => console.log("Original was clicked")}
-              color="var(--yellow-500)"
-            >
-              No Caffeine
-            </FlavorButton>
-            <FlavorButton
-              onClick={() => console.log("Original was clicked")}
-              color="var(--red-400)"
-            >
-              Strawberry
-            </FlavorButton>
-            <FlavorButton
-              onClick={() => console.log("Original was clicked")}
-              color="var(--lime-500)"
-            >
-              Lime
-            </FlavorButton>
+            {flavors.map((flavor) => (
+              <FlavorButton
+                key={flavor.id}
+                active={selectedFlavor === flavor.name}
+                onClick={() => handleSelectedFlavor(flavor.name)}
+                color={flavor.color}
+              >
+                {flavor.name}
+              </FlavorButton>
+            ))}
           </div>
         </div>
+        {/* --------- Wireframe checkbox --------- */}
         <div className="scene-controls__control-group">
           <span className="scene-controls__control-group-span">Wireframe:</span>
-          <Checkbox checked={showWireframe} onChange={handleShowWireframe}>
+          <Checkbox checked={showWireFrame} onChange={handleShowWireframe}>
             Show wireframe
           </Checkbox>
         </div>
+        {/* --------- Lighting options --------- */}
         <div className="scene-controls__control-group">
           <span className="scene-controls__control-group-span">Lighting:</span>
           <Select
@@ -89,7 +110,7 @@ const SceneControls = () => {
             <option value="blue">Blue</option>
           </Select>
           <Select
-            value={lightIntensity}
+            value={String(lightIntensity)}
             onChange={handleIntensityLightChange}
             label="Intensity"
           >
@@ -99,6 +120,7 @@ const SceneControls = () => {
             <option value="75">25%</option>
           </Select>
         </div>
+        {/* --------- Camera options --------- */}
         <div className="scene-controls__control-group">
           <span className="scene-controls__control-group-span">Camera:</span>
           <Select
