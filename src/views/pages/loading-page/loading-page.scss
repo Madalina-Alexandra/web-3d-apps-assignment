@@ -16,6 +16,10 @@
     background-repeat: no-repeat;
   }
 
+  &--no-bg {
+    background: none;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;

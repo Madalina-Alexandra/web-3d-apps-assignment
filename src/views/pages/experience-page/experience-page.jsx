@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { lazy, useContext } from "react";
 import "./experience-page.scss";
 import { MainAppModel } from "../../../models/main.model";
 import SceneControls from "../../organisms/scene-controls";
 import HandIcon from "../../atoms/icons/hand-icon";
-import ExperienceCanvas from "../../organisms/experience-canvas";
 import Footer from "../../organisms/footer";
+import ExperienceCanvas from "../../organisms/experience-canvas";
+
 
 const ExperiencePage = () => {
-
   // Get app modal
   const { model, dispatch } = useContext(MainAppModel);
 
@@ -16,8 +16,8 @@ const ExperiencePage = () => {
    * with the Canvas
    */
   const handleTooltip = () => {
-    if(model.showTooltip) dispatch({ type: "SET_TOOLTIP", payload: false });
-  }
+    if (model.showTooltip) dispatch({ type: "SET_TOOLTIP", payload: false });
+  };
 
   return (
     <div className="experience-page">

@@ -128,10 +128,8 @@ const SceneControls = () => {
             onChange={handleCameraPosition}
             label="Camera position"
           >
-            <option value="free-control">Free control</option>
+            <option value="default">Default</option>
             <option value="top">Top</option>
-            <option value="left">Left</option>
-            <option value="left">Right</option>
             <option value="bottom">Bottom</option>
           </Select>
         </div>
