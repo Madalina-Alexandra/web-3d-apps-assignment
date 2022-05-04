@@ -13,19 +13,23 @@ import LinksPage from "./views/pages/links-page";
 const App = () => {
   return (
     <div className="App">
-      <Suspense fallback={<LoadingPage noBackground />}>
-        <MainAppProvider>
+      <MainAppProvider>
+        <Suspense fallback={<LoadingPage noBackground />}>
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/loading" element={<LoadingPage />} />
+            <Route path="/loading" element={<LoadingPage noBackground />} />
+            <Route
+              path="/loading-gltfs"
+              element={<LoadingPage noBackground loadGLTFS />}
+            />
             <Route path="/3d-experience" element={<ExperiencePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/links" element={<LinksPage />} />
           </Routes>
-        </MainAppProvider>
-      </Suspense>
+        </Suspense>
+      </MainAppProvider>
     </div>
   );
 };

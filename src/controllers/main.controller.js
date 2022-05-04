@@ -1,24 +1,36 @@
+import cokeDietTexture from "../images/textures/coke/coke-diet-texture.png";
+import cokeLimeTexture from "../images/textures/coke/coke-lime-texture.png";
+import cokeNoCaffeineTexture from "../images/textures/coke/coke-no-caffeine-texture.png";
+import cokeStrawberryTexture from "../images/textures/coke/coke-strawberry-texture.png";
+import costaAmericanoTexture from "../images/textures/costa/costa-americano.png";
+import costaCaramelTexture from "../images/textures/costa/costa-caramel.png";
+import costaLatteTexture from "../images/textures/costa/costa-latte.png";
+
 const flavors = {
   coke: [
     {
       id: crypto.randomUUID(),
       name: "original",
       color: "var(--red-600)",
+      texture: cokeDietTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "no caffeine",
       color: "var(--yellow-500)",
+      texture: cokeNoCaffeineTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "strawberry",
       color: "var(--red-400)",
+      texture: cokeStrawberryTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "lime",
       color: "var(--lime-500)",
+      texture: cokeLimeTexture,
     },
   ],
   costa: [
@@ -26,16 +38,19 @@ const flavors = {
       id: crypto.randomUUID(),
       name: "americano",
       color: "var(--warm-gray-600)",
+      texture: costaAmericanoTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "caramel latte",
       color: "var(--warm-gray-500)",
+      texture: costaCaramelTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "latte",
       color: "var(--warm-gray-400)",
+      texture: costaLatteTexture,
     },
   ],
   glaceau: [
@@ -68,13 +83,17 @@ const controller = (state, action) => {
       return { ...state, loading: action.payload };
     case "SET_TOOLTIP":
       return { ...state, showTooltip: action.payload };
+    case "SET_GLTFS":
+      return { ...state, gltfs: action.payload };
     case "SET_CURRENT_MODEL":
       if (action.payload === "coke") {
         return {
           ...state,
           current3DModel: {
             ...state.current3DModel,
+            gltf: state.gltfs[0],
             selectedFlavor: flavors.coke[0].name,
+            texture: flavors.coke[0].texture,
             name: "coke",
             flavors: [...flavors.coke],
           },
@@ -86,6 +105,7 @@ const controller = (state, action) => {
           current3DModel: {
             ...state.current3DModel,
             selectedFlavor: flavors.costa[0].name,
+            texture: flavors.costa[0].texture,
             name: "costa",
             flavors: [...flavors.costa],
           },
@@ -97,6 +117,7 @@ const controller = (state, action) => {
           current3DModel: {
             ...state.current3DModel,
             selectedFlavor: flavors.glaceau[0].name,
+            texture: flavors.glaceau[0].texture,
             name: "glaceau",
             flavors: [...flavors.glaceau],
           },
@@ -104,10 +125,15 @@ const controller = (state, action) => {
       }
       break;
     case "SET_SELECTED_FLAVOR":
+      const getTexture = flavors[state.current3DModel.name].find(
+        (texture) => texture.name === action.payload
+      );
+
       return {
         ...state,
         current3DModel: {
           ...state.current3DModel,
+          texture: getTexture.texture,
           selectedFlavor: action.payload,
         },
       };

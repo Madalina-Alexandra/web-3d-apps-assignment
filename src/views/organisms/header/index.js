@@ -6,7 +6,7 @@ import HeaderDesktop from "./header-desktop";
 const Header = () => {
   // If current route is "/loading" don't render the header
   const { pathname } = useLocation();
-  if (pathname === "/loading") return;
+  if (pathname === "/loading" || pathname === "/loading-gltfs") return;
   return (
     <header className="header">
       <HeaderMobile />
