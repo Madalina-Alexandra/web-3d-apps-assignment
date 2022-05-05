@@ -17,6 +17,8 @@ const SceneControls = () => {
     showWireFrame,
     lightIntensity,
     lightColor,
+    showBackground,
+    hdri,
     cameraPosition,
   } = model.current3DModel;
 
@@ -38,14 +40,23 @@ const SceneControls = () => {
   };
 
   // This handles changing the light color
-  const handleColorLightChange = (e) => {
-    dispatch({ type: "SET_LIGHT_COLOR", payload: e.target.value });
+  // const handleColorLightChange = (e) => {
+  //   dispatch({ type: "SET_LIGHT_COLOR", payload: e.target.value });
+  // };
+
+  // This handles changing the hdRI
+  const handleHdriChange = (e) => {
+    dispatch({ type: "SET_HDRI", payload: e.target.value });
   };
 
   // This handles changing the light intensity
-  const handleIntensityLightChange = (e) => {
-    dispatch({ type: "SET_LIGHT_INTENSITY", payload: e.target.value });
-  };
+  // const handleIntensityLightChange = (e) => {
+  //   dispatch({ type: "SET_LIGHT_INTENSITY", payload: e.target.value });
+  // };
+  const handleShowBackground = () => {
+    dispatch({ type: "SET_SHOW_BACKGROUND", payload: !showBackground });
+  }
+
 
   // This handle the camera position
   const handleCameraPosition = (e) => {
@@ -98,7 +109,7 @@ const SceneControls = () => {
         </div>
         {/* --------- Lighting options --------- */}
         <div className="scene-controls__control-group">
-          <span className="scene-controls__control-group-span">Lighting:</span>
+          {/* <span className="scene-controls__control-group-span">Lighting:</span>
           <Select
             value={lightColor}
             onChange={handleColorLightChange}
@@ -108,8 +119,18 @@ const SceneControls = () => {
             <option value="wed">Red</option>
             <option value="green">Green</option>
             <option value="blue">Blue</option>
+          </Select> */}
+          <span className="scene-controls__control-group-span">Lighting:</span>
+          <Select value={hdri} onChange={handleHdriChange} label="HDIR Preset">
+            <option value="warehouse">Warehouse</option>
+            <option value="studio">Studio</option>
+            <option value="sunset">Sunset</option>
+            <option value="apartment">Apartment</option>
           </Select>
-          <Select
+          <Checkbox checked={showBackground} onChange={handleShowBackground}>
+            Show background
+          </Checkbox>
+          {/* <Select
             value={String(lightIntensity)}
             onChange={handleIntensityLightChange}
             label="Intensity"
@@ -118,7 +139,7 @@ const SceneControls = () => {
             <option value="75">75%</option>
             <option value="75">50%</option>
             <option value="75">25%</option>
-          </Select>
+          </Select> */}
         </div>
         {/* --------- Camera options --------- */}
         <div className="scene-controls__control-group">

@@ -163,6 +163,22 @@ const controller = (state, action) => {
           lightColor: action.payload,
         },
       };
+    case "SET_HDRI":
+      return {
+        ...state,
+        current3DModel: {
+          ...state.current3DModel,
+          hdri: action.payload,
+        },
+      };
+    case "SET_SHOW_BACKGROUND":
+      return {
+        ...state,
+        current3DModel: {
+          ...state.current3DModel,
+          showBackground: action.payload,
+        },
+      };
     case "SET_LIGHT_INTENSITY":
       return {
         ...state,

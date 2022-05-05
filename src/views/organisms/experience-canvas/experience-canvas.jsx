@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Color, TextureLoader } from "three";
+import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
 import { Canvas } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -9,7 +9,16 @@ import { Environment, OrbitControls } from "@react-three/drei";
 const ExperienceCanvas = () => {
   // Get app modal
   const { model } = useContext(MainAppModel);
-  const { name, texture, flavors, selectedFlavor, gltf } = model.current3DModel;
+  const {
+    showWireFrame,
+    texture,
+    flavors,
+    selectedFlavor,
+    gltf,
+    hdri,
+    showBackground,
+    cameraPosition,
+  } = model.current3DModel;
 
   // If no gltfs in model load the loading page
   const navigate = useNavigate();
@@ -32,47 +41,68 @@ const ExperienceCanvas = () => {
         JSON.stringify(model.current3DModel.gltf),
         "",
         (gltf) => {
-          // Set coke texture
-          if (gltf.asset.name === "coke") {
-            gltf.scene.children[2].children[0].material.map =
-              new TextureLoader().load(texture);
-            gltf.scene.children[2].children[0].material.map.flipY = false;
+
+          if (showWireFrame) {
+            const newMaterial = new THREE.MeshStandardMaterial({
+              color: 0xff0000,
+              wireframe: true,
+            });
+            gltf.scene.traverse((o) => {
+              if (o.isMesh) {
+                o.material = newMaterial;
+              }
+            });
           }
 
-          // Set costa texture
-          if (gltf.asset.name === "costa") {
-            gltf.scene.children[1].children[0].material.map =
-              new TextureLoader().load(texture);
-            gltf.scene.children[1].children[0].material.map.flipY = false;
-          }
+          if (!showWireFrame) {
+            //Set coke texture
+            if (gltf.asset.name === "coke") {
+              gltf.scene.children[2].children[0].material.map =
+                new THREE.TextureLoader().load(texture);
+              gltf.scene.children[2].children[0].material.map.flipY = false;
+            }
 
-          // Set coke glaceau textures
-          if (gltf.asset.name === "glaceau") {
-            gltf.scene.children[2].children[0].material.map =
-              new TextureLoader().load(texture);
-            gltf.scene.children[2].children[0].material.map.flipY = false;
+            // Set costa texture
+            if (gltf.asset.name === "costa") {
+              gltf.scene.children[1].children[0].material.map =
+                new THREE.TextureLoader().load(texture);
+              gltf.scene.children[1].children[0].material.map.flipY = false;
+            }
 
-            // Set correct liquid color
-            const meshOne =
-              gltf.scene.children[1].children[0].children[1].material;
-            const flavorColor = flavors.find(
-              (flavor) => flavor.name === selectedFlavor
-            ).color;
-            meshOne.color = new Color(flavorColor);
+            // Set coke glaceau textures
+            if (gltf.asset.name === "glaceau") {
+              gltf.scene.children[2].children[0].material.map =
+                new THREE.TextureLoader().load(texture);
+              gltf.scene.children[2].children[0].material.map.flipY = false;
+              // Set correct liquid color
+              const meshOne =
+                gltf.scene.children[1].children[0].children[1].material;
+              const flavorColor = flavors.find(
+                (flavor) => flavor.name === selectedFlavor
+              ).color;
+              meshOne.color = new THREE.Color(flavorColor);
+            }
           }
 
           setLoadedGltf(gltf);
         }
       );
     }
-  }, [model.gltfs, gltf, selectedFlavor]);
+  }, [model.gltfs, gltf, showWireFrame, selectedFlavor]);
 
+  const handleRotation = () => {
+    if (cameraPosition === 'top') return [Math.PI / 2, 0, 0];
+    if (cameraPosition === "bottom") return [Math.PI / -2, 0, 0];
+     return [0, 0, 0];
+  }
 
   return (
     <Canvas>
-      {loadedGltf && <primitive object={loadedGltf.scene} />}
+      {loadedGltf && (
+        <primitive object={loadedGltf.scene} rotation={handleRotation()} />
+      )}
       <OrbitControls />
-      <Environment preset="studio" />
+      <Environment preset={hdri} background={showBackground} />
     </Canvas>
   );
 };

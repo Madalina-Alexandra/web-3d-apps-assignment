@@ -37,7 +37,9 @@ const initialState = {
     showWireFrame: false,
     lightColor: "white",
     lightIntensity: 100,
-    cameraPosition: "free-control",
+    cameraPosition: "default",
+    hdri: "warehouse",
+    showBackground: false,
   },
 };
 
