@@ -6,6 +6,7 @@ import { MainAppModel } from "../../../models/main.model";
 import LoadingIcon from "../../atoms/icons/loading-icon";
 import cokeDefaultTexture from "../../../images/textures/coke/coke-diet-texture.png";
 import costaDefaultTexture from "../../../images/textures/costa/costa-americano.png";
+import glaceauDefaultTexture from "../../../images/textures/glaceau/glaceau-triple-berry.png";
 
 const LoadingPage = ({ noBackground, loadGLTFS }) => {
   // Get model
@@ -30,16 +31,23 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
              * (to stop them being too large) we need to set their
              * textures here for the first time
              */
-            if (result.asset.name === "coke") {
-              result.images[0].uri = cokeDefaultTexture;
-            }
 
-            if (result.asset.name === "costa") {
-              result.images[0].uri = costaDefaultTexture;
-            }
+            result.forEach((item) => {
+              if (item.asset.name === "coke") {
+                item.images[0].uri = cokeDefaultTexture;
+              }
+
+              if (item.asset.name === "costa") {
+                item.images[0].uri = costaDefaultTexture;
+              }
+
+              if (item.asset.name === "glaceau") {
+                item.images[0].uri = glaceauDefaultTexture;
+              }
+            });
 
             // Add GLTFS to our modal and set current modal to coke
-            dispatch({ type: "SET_GLTFS", payload: [result] });
+            dispatch({ type: "SET_GLTFS", payload: result });
             dispatch({ type: "SET_CURRENT_MODEL", payload: "coke" });
           },
           (error) => {

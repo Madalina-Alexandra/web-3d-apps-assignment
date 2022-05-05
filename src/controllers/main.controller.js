@@ -5,6 +5,10 @@ import cokeStrawberryTexture from "../images/textures/coke/coke-strawberry-textu
 import costaAmericanoTexture from "../images/textures/costa/costa-americano.png";
 import costaCaramelTexture from "../images/textures/costa/costa-caramel.png";
 import costaLatteTexture from "../images/textures/costa/costa-latte.png";
+import glaceauDragonfruitTexture from "../images/textures/glaceau/glaceau-dragonfruit.png";
+import glaceauFruitPunchTexture from "../images/textures/glaceau/glaceau-fruit-punch.png";
+import glaceauOrangeTexture from "../images/textures/glaceau/glaceau-orange.png";
+import glaceauTripleBerryTexture from "../images/textures/glaceau/glaceau-triple-berry.png";
 
 const flavors = {
   coke: [
@@ -57,22 +61,26 @@ const flavors = {
     {
       id: crypto.randomUUID(),
       name: "triple berry",
-      color: "var(--pink-500)",
+      color: "rgb(131, 8, 40)",
+      texture: glaceauTripleBerryTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "orange",
-      color: "var(--yellow-500)",
+      color: "rgb(246, 166, 10)",
+      texture: glaceauOrangeTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "dragonfruit",
-      color: "var(--pink-300)",
+      color: "rgb(230, 77, 98)",
+      texture: glaceauDragonfruitTexture,
     },
     {
       id: crypto.randomUUID(),
       name: "fruit punch",
-      color: "var(--purple-500)",
+      color: "rgb(190, 8, 74)",
+      texture: glaceauFruitPunchTexture,
     },
   ],
 };
@@ -104,6 +112,7 @@ const controller = (state, action) => {
           ...state,
           current3DModel: {
             ...state.current3DModel,
+            gltf: state.gltfs[1],
             selectedFlavor: flavors.costa[0].name,
             texture: flavors.costa[0].texture,
             name: "costa",
@@ -116,6 +125,7 @@ const controller = (state, action) => {
           ...state,
           current3DModel: {
             ...state.current3DModel,
+            gltf: state.gltfs[2],
             selectedFlavor: flavors.glaceau[0].name,
             texture: flavors.glaceau[0].texture,
             name: "glaceau",
