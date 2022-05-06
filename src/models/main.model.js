@@ -40,6 +40,7 @@ const initialState = {
     cameraPosition: "default",
     hdri: "warehouse",
     showBackground: false,
+    rotate: false,
   },
 };
 

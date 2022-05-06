@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { MainAppModel } from "../../../models/main.model";
 import { Environment, OrbitControls } from "@react-three/drei";
@@ -18,6 +18,7 @@ const ExperienceCanvas = () => {
     hdri,
     showBackground,
     cameraPosition,
+    rotate,
   } = model.current3DModel;
 
   // If no gltfs in model load the loading page
@@ -41,7 +42,6 @@ const ExperienceCanvas = () => {
         JSON.stringify(model.current3DModel.gltf),
         "",
         (gltf) => {
-
           if (showWireFrame) {
             const newMaterial = new THREE.MeshStandardMaterial({
               color: 0xff0000,
@@ -91,16 +91,33 @@ const ExperienceCanvas = () => {
   }, [model.gltfs, gltf, showWireFrame, selectedFlavor]);
 
   const handleRotation = () => {
-    if (cameraPosition === 'top') return [Math.PI / 2, 0, 0];
+    if (cameraPosition === "top") return [Math.PI / 2, 0, 0];
     if (cameraPosition === "bottom") return [Math.PI / -2, 0, 0];
-     return [0, 0, 0];
-  }
+    return [0, 0, 0];
+  };
+
+  // This handles our rotate animation
+  const primitiveRef = useRef(null);
+  const AnimatedPrimitive = () => {
+    useFrame(({ clock }) => {
+      const a = clock.getElapsedTime();
+      if (rotate) {
+        primitiveRef.current.rotation.y = a;
+      }
+    });
+    return (
+      <primitive
+        ref={primitiveRef}
+        object={loadedGltf.scene}
+        rotation={handleRotation()}
+      />
+    );
+  };
+
 
   return (
     <Canvas>
-      {loadedGltf && (
-        <primitive object={loadedGltf.scene} rotation={handleRotation()} />
-      )}
+      {loadedGltf && <AnimatedPrimitive />}
       <OrbitControls />
       <Environment preset={hdri} background={showBackground} />
     </Canvas>

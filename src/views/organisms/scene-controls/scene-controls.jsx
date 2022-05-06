@@ -20,6 +20,7 @@ const SceneControls = () => {
     showBackground,
     hdri,
     cameraPosition,
+    rotate,
   } = model.current3DModel;
 
   // This handles changing the model
@@ -57,6 +58,9 @@ const SceneControls = () => {
     dispatch({ type: "SET_SHOW_BACKGROUND", payload: !showBackground });
   }
 
+  const handleRotate = () => {
+    dispatch({ type: "SET_ROTATE", payload: !rotate });
+  };
 
   // This handle the camera position
   const handleCameraPosition = (e) => {
@@ -153,6 +157,13 @@ const SceneControls = () => {
             <option value="top">Top</option>
             <option value="bottom">Bottom</option>
           </Select>
+        </div>
+        {/* --------- Animation options --------- */}
+        <div className="scene-controls__control-group">
+          <span className="scene-controls__control-group-span">Animations:</span>
+          <Checkbox checked={rotate} onChange={handleRotate}>
+            Rotate
+          </Checkbox>
         </div>
       </div>
     </div>

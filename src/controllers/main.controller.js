@@ -179,6 +179,14 @@ const controller = (state, action) => {
           showBackground: action.payload,
         },
       };
+    case "SET_ROTATE":
+      return {
+        ...state,
+        current3DModel: {
+          ...state.current3DModel,
+          rotate: action.payload,
+        },
+      };
     case "SET_LIGHT_INTENSITY":
       return {
         ...state,
