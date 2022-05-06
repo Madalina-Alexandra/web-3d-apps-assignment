@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   gap: toRem(16);
-  height: toRem(378);
 
   @include respond(md) {
     width: 100%;
@@ -39,5 +38,6 @@
     justify-content: center;
     @include text-style(text-base);
     color: var(--gray-500);
+    text-align: center;
   }
 }
