@@ -7,6 +7,7 @@ const initialState = {
   loading: false,
   gltfs: [],
   showTooltip: true,
+  modal: null,
   current3DModel: {
     name: "coke",
     gltf: null,

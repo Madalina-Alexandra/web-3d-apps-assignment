@@ -203,6 +203,20 @@ const controller = (state, action) => {
           cameraPosition: action.payload,
         },
       };
+    case "SET_MODAL":
+      if (!action.payload) {
+        return {
+          ...state,
+          modal: null,
+        };
+      }
+      return {
+        ...state,
+        modal: {
+          src: action.payload.src,
+          alt: action.payload.alt,
+        },
+      };
     default:
       return state;
   }

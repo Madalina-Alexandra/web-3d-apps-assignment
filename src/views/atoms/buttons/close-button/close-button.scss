@@ -1,0 +1,19 @@
+
+@import "../../../../styles/abstracts/mixins";
+
+.close-button {
+  padding: toRem(8);
+  border: none;
+  background-color: transparent;
+
+  &:disabled,
+  &[disabled]{
+    background-color: var(--gray-200);
+  }
+
+  svg {
+    width: toRem(32);
+    height: toRem(32);
+    stroke: var(--gray-700);
+  }
+}

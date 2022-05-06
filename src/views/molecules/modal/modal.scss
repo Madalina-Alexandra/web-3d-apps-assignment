@@ -1,0 +1,36 @@
+@import '../../../styles/abstracts/mixins';
+
+.modal {
+  display: none;
+
+  @include respond(md) {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--gray-500);
+    opacity: 0.70;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: toRem(8);
+    padding: toRem(32);
+    background-color: var(--white);
+    border-radius: toRem(20);
+    z-index: 10;
+  }
+
+  &__close-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

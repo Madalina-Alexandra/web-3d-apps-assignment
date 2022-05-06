@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./gallery.scss";
+import { MainAppModel } from "../../../models/main.model";
 import Image from "../../atoms/image";
 import galleryImage1 from "../../../images/gallery-img-1.jpg";
 import galleryImage2 from "../../../images/gallery-img-2.jpg";
@@ -14,16 +15,19 @@ import ChevronButton from "../../atoms/buttons/chevron-button";
 import SecondaryButton from "../../atoms/buttons/secondary-button";
 
 const Gallery = () => {
+  // Get app modal
+  const { model, dispatch } = useContext(MainAppModel);
+
   const images = [
-    { caption: "Glaceau render", src: galleryImage1 },
-    { caption: "Costa render", src: galleryImage2 },
-    { caption: "Coke render", src: galleryImage3 },
-    { caption: "Glaceau render", src: galleryImage4},
-    { caption: "Costa render", src: galleryImage5 },
-    { caption: "Coke render", src: galleryImage6 },
-    { caption: "Glaceau render", src: galleryImage7 },
-    { caption: "Costa render", src: galleryImage8 },
-    { caption: "Coke render", src: galleryImage9 },
+    { figcaption: "Glaceau render", src: galleryImage1 },
+    { figcaption: "Costa render", src: galleryImage2 },
+    { figcaption: "Coke render", src: galleryImage3 },
+    { figcaption: "Glaceau render", src: galleryImage4 },
+    { figcaption: "Costa render", src: galleryImage5 },
+    { figcaption: "Coke render", src: galleryImage6 },
+    { figcaption: "Glaceau render", src: galleryImage7 },
+    { figcaption: "Costa render", src: galleryImage8 },
+    { figcaption: "Coke render", src: galleryImage9 },
   ];
 
   // For mobile
@@ -46,10 +50,16 @@ const Gallery = () => {
   // For Desktop
   const [amountOfImagesToShow, setAmountOfImagesToShow] = useState(6);
   const handleLoadMOre = () => {
-    if(amountOfImagesToShow < images.length - 1) {
-      setAmountOfImagesToShow(amountOfImagesToShow + 6)
+    if (amountOfImagesToShow < images.length - 1) {
+      setAmountOfImagesToShow(amountOfImagesToShow + 6);
     }
-  }
+  };
+
+  const handleShowModal = (image) =>
+    dispatch({
+      type: "SET_MODAL",
+      payload: { src: image.src, alt: image.figcaption },
+    });
 
   return (
     <div className="gallery">
@@ -57,8 +67,8 @@ const Gallery = () => {
       <div className="gallery__container gallery__container--mobile">
         <Image
           src={currentImage.src}
-          alt={currentImage.caption}
-          caption={currentImage.caption}
+          alt={currentImage.figcaption}
+          figcaption={currentImage.figcaption}
         />
         <div className="gallery__carousel-buttons">
           <ChevronButton
@@ -78,15 +88,16 @@ const Gallery = () => {
           <Image
             key={crypto.randomUUID()}
             src={image.src}
-            alt={image.caption}
-            caption={image.caption}
+            alt={image.figcaption}
+            figcaption={image.figcaption}
+            onClick={() => handleShowModal(image)}
           />
         ))}
       </div>
       {amountOfImagesToShow < images.length && (
-      <div className="gallery__load-more-btn">
-        <SecondaryButton onClick={handleLoadMOre}>Load more</SecondaryButton>
-      </div>
+        <div className="gallery__load-more-btn">
+          <SecondaryButton onClick={handleLoadMOre}>Load more</SecondaryButton>
+        </div>
       )}
     </div>
   );

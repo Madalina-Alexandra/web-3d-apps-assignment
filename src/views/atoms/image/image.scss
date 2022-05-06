@@ -9,6 +9,22 @@
   @include respond(md) {
     width: 100%;
     height: auto;
+    transition: transform 0.3s ease-out;
+
+    &:hover &__image {
+      box-shadow: var(--shadow-xl);
+      transform: translate(0, -0.5rem);
+      cursor: pointer;
+    }
+
+    &--modal {
+      height: 100%;
+
+      &:hover .image__image {
+        box-shadow: unset;
+        transform: unset;
+      }
+    }
   }
 
   &__image {
