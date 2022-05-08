@@ -1,19 +1,19 @@
-import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./hero.scss";
-import gsap from "gsap";
+import React, { useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './hero.scss';
+import gsap from 'gsap';
 import {
   Heading4xl,
   Paragraph,
   StandardLink,
-} from "../../atoms/typography/typography";
-import PrimaryButton from "../../atoms/buttons/primary-button";
+} from '../../atoms/typography/typography';
+import PrimaryButton from '../../atoms/buttons/primary-button';
 import heroImage from "../../../images/hero.png";
 
 const Hero = () => {
   // This will allow us to navigate to the 3d-experience when the primary button is clicked on
   const navigate = useNavigate();
-  const handleNavigate = () => navigate("/3d-experience");
+  const handleNavigate = () => navigate('/3d-experience');
 
   // This is for the hero image animation
   const heroImgRef = useRef(null);
@@ -24,20 +24,20 @@ const Hero = () => {
     var tl = gsap.timeline({ repeat: -1 });
     tl.to(
       heroImgRef.current,
-      { y: -20, duration: 1.5, ease: "power2.out" },
-      "start"
+      { y: -20, duration: 1.5, ease: 'power2.out' },
+      'start'
     );
     tl.to(
       heroImgRef.current,
-      { y: 0, duration: 1.5, ease: "power2.out" },
-      "end"
+      { y: 0, duration: 1.5, ease: 'power2.out' },
+      'end'
     );
-    tl.to(bubbleOneRef.current, { y: -25, duration: 1.5 }, "start");
-    tl.to(bubbleOneRef.current, { y: 0, duration: 1.5 }, "end");
-    tl.to(bubbleTwoRef.current, { y: -15, duration: 1.5 }, "start");
-    tl.to(bubbleTwoRef.current, { y: 0, duration: 1.5 }, "end");
-    tl.to(bubbleThreeRef.current, { y: -15, duration: 1.5 }, "start");
-    tl.to(bubbleThreeRef.current, { y: 0, duration: 1.5 }, "end");
+    tl.to(bubbleOneRef.current, { y: -25, duration: 1.5 }, 'start');
+    tl.to(bubbleOneRef.current, { y: 0, duration: 1.5 }, 'end');
+    tl.to(bubbleTwoRef.current, { y: -15, duration: 1.5 }, 'start');
+    tl.to(bubbleTwoRef.current, { y: 0, duration: 1.5 }, 'end');
+    tl.to(bubbleThreeRef.current, { y: -15, duration: 1.5 }, 'start');
+    tl.to(bubbleThreeRef.current, { y: 0, duration: 1.5 }, 'end');
   }, []);
 
   return (
@@ -52,7 +52,9 @@ const Hero = () => {
         </Paragraph>
         <div className="hero__buttons">
           <PrimaryButton onClick={handleNavigate}>Start</PrimaryButton>
-          <StandardLink router to="/about">See docs</StandardLink>
+          <StandardLink router to="/about">
+            See docs
+          </StandardLink>
         </div>
       </div>
       <div className="hero__img-container">
@@ -72,7 +74,7 @@ const Hero = () => {
           <img
             ref={heroImgRef}
             className="hero__img"
-            src={heroImage}
+            src={process.env.PUBLIC_URL + 'images/hero.png'}
             alt="Animated coke can"
           />
         </div>

@@ -15,22 +15,22 @@ const initialState = {
     selectedFlavor: "original",
     flavors: [
       {
-        id: crypto.randomUUID(),
+        id: 1,
         name: "original",
         color: "var(--red-600)",
       },
       {
-        id: crypto.randomUUID(),
+        id: 2,
         name: "no caffeine",
         color: "var(--yellow-500)",
       },
       {
-        id: crypto.randomUUID(),
+        id: 3,
         name: "strawberry",
         color: "var(--red-400)",
       },
       {
-        id: crypto.randomUUID(),
+        id: 4,
         name: "lime",
         color: "var(--lime-500)",
       },

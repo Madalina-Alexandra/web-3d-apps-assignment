@@ -12,6 +12,8 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
   // Get model
   const { model, dispatch } = useContext(MainAppModel);
 
+  const url = window.location.href.replace(window.location.pathname, '');
+
   const navigate = useNavigate();
 
   /**
@@ -22,33 +24,35 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
    */
   useEffect(() => {
     if (model.gltfs.length === 0 && loadGLTFS) {
-      fetch("http://localhost:3000/server")
+      fetch('http://users.sussex.ac.uk/~mm2086/api/post/read.php')
         .then((res) => res.json())
         .then(
           (result) => {
+            const gltfs = [];
             /**
              * As our json data will not have the textures set
              * (to stop them being too large) we need to set their
              * textures here for the first time
              */
-
             result.forEach((item) => {
-              if (item.asset.name === "coke") {
-                item.images[0].uri = cokeDefaultTexture;
+              if (item.name === 'coke') {
+                item.gltf.images[0].uri = cokeDefaultTexture;
               }
 
-              if (item.asset.name === "costa") {
-                item.images[0].uri = costaDefaultTexture;
+              if (item.name === 'costa') {
+                item.gltf.images[0].uri = costaDefaultTexture;
               }
 
-              if (item.asset.name === "glaceau") {
-                item.images[0].uri = glaceauDefaultTexture;
+              if (item.name === 'glaceau') {
+                item.gltf.images[0].uri = glaceauDefaultTexture;
               }
+
+              gltfs.push(item.gltf);
             });
 
             // Add GLTFS to our modal and set current modal to coke
-            dispatch({ type: "SET_GLTFS", payload: result });
-            dispatch({ type: "SET_CURRENT_MODEL", payload: "coke" });
+            dispatch({ type: 'SET_GLTFS', payload: gltfs });
+            dispatch({ type: 'SET_CURRENT_MODEL', payload: 'coke' });
           },
           (error) => {
             console.log(error);

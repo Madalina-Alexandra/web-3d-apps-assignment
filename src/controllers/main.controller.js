@@ -13,25 +13,25 @@ import glaceauTripleBerryTexture from "../images/textures/glaceau/glaceau-triple
 const flavors = {
   coke: [
     {
-      id: crypto.randomUUID(),
+      id: 1,
       name: "original",
       color: "var(--red-600)",
       texture: cokeDietTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 2,
       name: "no caffeine",
       color: "var(--yellow-500)",
       texture: cokeNoCaffeineTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 3,
       name: "strawberry",
       color: "var(--red-400)",
       texture: cokeStrawberryTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 4,
       name: "lime",
       color: "var(--lime-500)",
       texture: cokeLimeTexture,
@@ -39,19 +39,19 @@ const flavors = {
   ],
   costa: [
     {
-      id: crypto.randomUUID(),
+      id: 5,
       name: "americano",
       color: "var(--warm-gray-600)",
       texture: costaAmericanoTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 6,
       name: "caramel latte",
       color: "var(--warm-gray-500)",
       texture: costaCaramelTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 7,
       name: "latte",
       color: "var(--warm-gray-400)",
       texture: costaLatteTexture,
@@ -59,25 +59,25 @@ const flavors = {
   ],
   glaceau: [
     {
-      id: crypto.randomUUID(),
+      id: 8,
       name: "triple berry",
       color: "rgb(131, 8, 40)",
       texture: glaceauTripleBerryTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 9,
       name: "orange",
       color: "rgb(246, 166, 10)",
       texture: glaceauOrangeTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 10,
       name: "dragonfruit",
       color: "rgb(230, 77, 98)",
       texture: glaceauDragonfruitTexture,
     },
     {
-      id: crypto.randomUUID(),
+      id: 11,
       name: "fruit punch",
       color: "rgb(190, 8, 74)",
       texture: glaceauFruitPunchTexture,
