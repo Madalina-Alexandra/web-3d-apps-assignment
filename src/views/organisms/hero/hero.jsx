@@ -8,7 +8,6 @@ import {
   StandardLink,
 } from '../../atoms/typography/typography';
 import PrimaryButton from '../../atoms/buttons/primary-button';
-import heroImage from "../../../images/hero.png";
 
 const Hero = () => {
   // This will allow us to navigate to the 3d-experience when the primary button is clicked on

@@ -2,28 +2,28 @@ import React, { useState, useContext } from "react";
 import "./gallery.scss";
 import { MainAppModel } from "../../../models/main.model";
 import Image from "../../atoms/image";
-import galleryImage1 from "../../../images/gallery/full/full-1.jpg";
-import galleryImage2 from "../../../images/gallery/full/full-2.jpg";
-import galleryImage3 from "../../../images/gallery/full/full-3.jpg";
-import galleryImage4 from "../../../images/gallery/full/full-4.jpg";
-import galleryImage5 from "../../../images/gallery/full/full-5.jpg";
-import galleryImage6 from "../../../images/gallery/full/full-6.jpg";
-import galleryImage7 from "../../../images/gallery/full/full-7.jpg";
-import galleryImage8 from "../../../images/gallery/full/full-8.jpg";
-import galleryImage9 from "../../../images/gallery/full/full-9.jpg";
-import galleryThumbImage1 from "../../../images/gallery/thumb/thumb-1.jpg";
-import galleryThumbImage2 from "../../../images/gallery/thumb/thumb-2.jpg";
-import galleryThumbImage3 from "../../../images/gallery/thumb/thumb-3.jpg";
-import galleryThumbImage4 from "../../../images/gallery/thumb/thumb-4.jpg";
-import galleryThumbImage5 from "../../../images/gallery/thumb/thumb-5.jpg";
-import galleryThumbImage6 from "../../../images/gallery/thumb/thumb-6.jpg";
-import galleryThumbImage7 from "../../../images/gallery/thumb/thumb-7.jpg";
-import galleryThumbImage8 from "../../../images/gallery/thumb/thumb-8.jpg";
-import galleryThumbImage9 from "../../../images/gallery/thumb/thumb-9.jpg";
 
 import ChevronButton from "../../atoms/buttons/chevron-button";
-
 import SecondaryButton from "../../atoms/buttons/secondary-button";
+
+const galleryImage1 = process.env.PUBLIC_URL + "images/gallery/full/full-1.jpg";
+const galleryImage2 = process.env.PUBLIC_URL + "images/gallery/full/full-2.jpg";
+const galleryImage3 = process.env.PUBLIC_URL + "images/gallery/full/full-3.jpg";
+const galleryImage4 = process.env.PUBLIC_URL + "images/gallery/full/full-4.jpg";
+const galleryImage5 = process.env.PUBLIC_URL + "images/gallery/full/full-5.jpg";
+const galleryImage6 = process.env.PUBLIC_URL + "images/gallery/full/full-6.jpg";
+const galleryImage7 = process.env.PUBLIC_URL + "images/gallery/full/full-7.jpg";
+const galleryImage8 = process.env.PUBLIC_URL + "images/gallery/full/full-8.jpg";
+const galleryImage9 = process.env.PUBLIC_URL + "images/gallery/full/full-9.jpg";
+const galleryThumbImage1 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-1.jpg";
+const galleryThumbImage2 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-2.jpg";
+const galleryThumbImage3 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-3.jpg";
+const galleryThumbImage4 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-4.jpg";
+const galleryThumbImage5 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-5.jpg";
+const galleryThumbImage6 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-6.jpg";
+const galleryThumbImage7 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-7.jpg";
+const galleryThumbImage8 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-8.jpg";
+const galleryThumbImage9 = process.env.PUBLIC_URL + "images/gallery/thumb/thumb-9.jpg";
 
 const Gallery = () => {
   // Get app modal

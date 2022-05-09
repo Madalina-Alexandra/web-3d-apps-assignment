@@ -4,15 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "./loading-page.scss";
 import { MainAppModel } from "../../../models/main.model";
 import LoadingIcon from "../../atoms/icons/loading-icon";
-import cokeDefaultTexture from "../../../images/textures/coke/coke-diet-texture.png";
-import costaDefaultTexture from "../../../images/textures/costa/costa-americano.png";
-import glaceauDefaultTexture from "../../../images/textures/glaceau/glaceau-triple-berry.png";
+
 
 const LoadingPage = ({ noBackground, loadGLTFS }) => {
   // Get model
   const { model, dispatch } = useContext(MainAppModel);
-
-  const url = window.location.href.replace(window.location.pathname, '');
 
   const navigate = useNavigate();
 
@@ -36,15 +32,20 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
              */
             result.forEach((item) => {
               if (item.name === 'coke') {
-                item.gltf.images[0].uri = cokeDefaultTexture;
+                item.gltf.images[0].uri =
+                  process.env.PUBLIC_URL +
+                  "images/textures/coke/coke-diet-texture.png";
               }
 
               if (item.name === 'costa') {
-                item.gltf.images[0].uri = costaDefaultTexture;
+                item.gltf.images[0].uri =
+                  process.env.PUBLIC_URL +
+                  "images/textures/costa/costa-americano.png";
               }
-
               if (item.name === 'glaceau') {
-                item.gltf.images[0].uri = glaceauDefaultTexture;
+                item.gltf.images[0].uri =
+                  process.env.PUBLIC_URL +
+                  "images/textures/glaceau/glaceau-triple-berry.png";
               }
 
               gltfs.push(item.gltf);
@@ -75,8 +76,6 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
           <LoadingIcon />
         </div>
         <p className="loading-page__paragraph">
-          {/* Just creating your experience{" "}
-          <span className="loading-page__span">now...</span> */}
           Loading ...
         </p>
       </div>

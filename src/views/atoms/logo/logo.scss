@@ -1,12 +1,40 @@
 @import "../../../styles/abstracts/mixins";
 
 .logo {
+  font-family: cocaColaFont;
   color: var(--gray-800);
-  font-weight: 700;
-  @include text-style(text-lg);
+  font-size: toRem(28);
+  line-height: 1;
   pointer-events: auto;
 
   &--on-dark {
     color: var(--gray-50);
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__span {
+    display: block;
+
+    &--part-one, &--part-two {
+      font-size: toRem(32);
+
+      @include respond(md) {
+        font-size: toRem(40);
+      }
+    }
+
+    &--part-three {
+      font-size: toRem(32);
+      margin-top: toRem(6);
+      margin-left: toRem(6);
+
+      @include respond(md) {
+        margin-top: toRem(6);
+        font-size: toRem(43);
+      }
+    }
   }
 }

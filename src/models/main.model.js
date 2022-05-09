@@ -1,6 +1,5 @@
 import React, { useReducer, createContext } from "react";
 import controller from "../controllers/main.controller";
-import cokeDietTexture from "../images/textures/coke/coke-diet-texture.png";
 
 // Build initial state
 const initialState = {
@@ -11,7 +10,8 @@ const initialState = {
   current3DModel: {
     name: "coke",
     gltf: null,
-    texture: cokeDietTexture,
+    texture:
+      process.env.PUBLIC_URL + "images/textures/coke/coke-diet-texture.png",
     selectedFlavor: "original",
     flavors: [
       {

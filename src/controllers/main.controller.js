@@ -1,40 +1,34 @@
-import cokeDietTexture from "../images/textures/coke/coke-diet-texture.png";
-import cokeLimeTexture from "../images/textures/coke/coke-lime-texture.png";
-import cokeNoCaffeineTexture from "../images/textures/coke/coke-no-caffeine-texture.png";
-import cokeStrawberryTexture from "../images/textures/coke/coke-strawberry-texture.png";
-import costaAmericanoTexture from "../images/textures/costa/costa-americano.png";
-import costaCaramelTexture from "../images/textures/costa/costa-caramel.png";
-import costaLatteTexture from "../images/textures/costa/costa-latte.png";
-import glaceauDragonfruitTexture from "../images/textures/glaceau/glaceau-dragonfruit.png";
-import glaceauFruitPunchTexture from "../images/textures/glaceau/glaceau-fruit-punch.png";
-import glaceauOrangeTexture from "../images/textures/glaceau/glaceau-orange.png";
-import glaceauTripleBerryTexture from "../images/textures/glaceau/glaceau-triple-berry.png";
-
 const flavors = {
   coke: [
     {
       id: 1,
       name: "original",
       color: "var(--red-600)",
-      texture: cokeDietTexture,
+      texture:
+        process.env.PUBLIC_URL + "images/textures/coke/coke-diet-texture.png",
     },
     {
       id: 2,
       name: "no caffeine",
       color: "var(--yellow-500)",
-      texture: cokeNoCaffeineTexture,
+      texture:
+        process.env.PUBLIC_URL +
+        "images/textures/coke/coke-no-caffeine-texture.png",
     },
     {
       id: 3,
       name: "strawberry",
       color: "var(--red-400)",
-      texture: cokeStrawberryTexture,
+      texture:
+        process.env.PUBLIC_URL +
+        "images/textures/coke/coke-strawberry-texture.png",
     },
     {
       id: 4,
       name: "lime",
       color: "var(--lime-500)",
-      texture: cokeLimeTexture,
+      texture:
+        process.env.PUBLIC_URL + "images/textures/coke/coke-lime-texture.png",
     },
   ],
   costa: [
@@ -42,19 +36,21 @@ const flavors = {
       id: 5,
       name: "americano",
       color: "var(--warm-gray-600)",
-      texture: costaAmericanoTexture,
+      texture:
+        process.env.PUBLIC_URL + "images/textures/costa/costa-americano.png",
     },
     {
       id: 6,
       name: "caramel latte",
       color: "var(--warm-gray-500)",
-      texture: costaCaramelTexture,
+      texture:
+        process.env.PUBLIC_URL + "images/textures/costa/costa-caramel.png",
     },
     {
       id: 7,
       name: "latte",
       color: "var(--warm-gray-400)",
-      texture: costaLatteTexture,
+      texture: process.env.PUBLIC_URL + "images/textures/costa/costa-latte.png",
     },
   ],
   glaceau: [
@@ -62,25 +58,32 @@ const flavors = {
       id: 8,
       name: "triple berry",
       color: "rgb(131, 8, 40)",
-      texture: glaceauTripleBerryTexture,
+      texture:
+        process.env.PUBLIC_URL +
+        "images/textures/glaceau/glaceau-triple-berry.png",
     },
     {
       id: 9,
       name: "orange",
       color: "rgb(246, 166, 10)",
-      texture: glaceauOrangeTexture,
+      texture:
+        process.env.PUBLIC_URL + "images/textures/glaceau/glaceau-orange.png",
     },
     {
       id: 10,
       name: "dragonfruit",
       color: "rgb(230, 77, 98)",
-      texture: glaceauDragonfruitTexture,
+      texture:
+        process.env.PUBLIC_URL +
+        "images/textures/glaceau/glaceau-dragonfruit.png",
     },
     {
       id: 11,
       name: "fruit punch",
       color: "rgb(190, 8, 74)",
-      texture: glaceauFruitPunchTexture,
+      texture:
+        process.env.PUBLIC_URL +
+        "images/textures/glaceau/glaceau-fruit-punch.png",
     },
   ],
 };
