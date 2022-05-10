@@ -18,21 +18,29 @@ const initialState = {
         id: 1,
         name: "original",
         color: "var(--red-600)",
+        description:
+          "Add some sparkle to your day without the sugar or calories, with a crisp, refreshing Diet Coke!",
       },
       {
         id: 2,
         name: "no caffeine",
         color: "var(--yellow-500)",
+        description:
+          "Add some sparkle to your day without the caffeine, with a crisp, refreshing Diet Coke Caffeine Free!",
       },
       {
         id: 3,
         name: "strawberry",
         color: "var(--red-400)",
+        description:
+          "Add some flavour to your day without the sugar or calories, with Diet Coke Twisted Strawberry.",
       },
       {
         id: 4,
         name: "lime",
         color: "var(--lime-500)",
+        description:
+          "Add some flavour to your day, without the sugar or calories with Diet Coke Sublime Lime.",
       },
     ],
     showWireFrame: false,
@@ -42,6 +50,8 @@ const initialState = {
     hdri: "warehouse",
     showBackground: false,
     rotate: false,
+    description:
+      "Add some sparkle to your day without the sugar or calories, with a crisp, refreshing Diet Coke!",
   },
 };
 

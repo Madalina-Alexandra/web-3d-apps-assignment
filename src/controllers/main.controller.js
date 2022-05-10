@@ -6,6 +6,8 @@ const flavors = {
       color: "var(--red-600)",
       texture:
         process.env.PUBLIC_URL + "images/textures/coke/coke-diet-texture.png",
+      description:
+        "Add some sparkle to your day without the sugar or calories, with a crisp, refreshing Diet Coke!",
     },
     {
       id: 2,
@@ -14,6 +16,8 @@ const flavors = {
       texture:
         process.env.PUBLIC_URL +
         "images/textures/coke/coke-no-caffeine-texture.png",
+      description:
+        "Add some sparkle to your day without the caffeine, with a crisp, refreshing Diet Coke Caffeine Free!",
     },
     {
       id: 3,
@@ -22,6 +26,8 @@ const flavors = {
       texture:
         process.env.PUBLIC_URL +
         "images/textures/coke/coke-strawberry-texture.png",
+      description:
+        "Add some flavour to your day without the sugar or calories, with Diet Coke Twisted Strawberry.",
     },
     {
       id: 4,
@@ -29,6 +35,8 @@ const flavors = {
       color: "var(--lime-500)",
       texture:
         process.env.PUBLIC_URL + "images/textures/coke/coke-lime-texture.png",
+      description:
+        "Add some flavour to your day, without the sugar or calories with Diet Coke Sublime Lime.",
     },
   ],
   costa: [
@@ -38,6 +46,8 @@ const flavors = {
       color: "var(--warm-gray-600)",
       texture:
         process.env.PUBLIC_URL + "images/textures/costa/costa-americano.png",
+      description:
+        "Our classic Americano has been expertly crafted by our Master of Coffee.",
     },
     {
       id: 6,
@@ -45,12 +55,16 @@ const flavors = {
       color: "var(--warm-gray-500)",
       texture:
         process.env.PUBLIC_URL + "images/textures/costa/costa-caramel.png",
+      description:
+        "Our sweet and creamy Caramel Latte has been expertly crafted by our Master of Coffee.",
     },
     {
       id: 7,
       name: "latte",
       color: "var(--warm-gray-400)",
       texture: process.env.PUBLIC_URL + "images/textures/costa/costa-latte.png",
+      description:
+        "Our smooth and creamy Latte has been expertly crafted by our Master of Coffee.",
     },
   ],
   glaceau: [
@@ -61,6 +75,7 @@ const flavors = {
       texture:
         process.env.PUBLIC_URL +
         "images/textures/glaceau/glaceau-triple-berry.png",
+      description: "XXX - A low calorie berry flavoured spring water.",
     },
     {
       id: 9,
@@ -68,6 +83,7 @@ const flavors = {
       color: "rgb(246, 166, 10)",
       texture:
         process.env.PUBLIC_URL + "images/textures/glaceau/glaceau-orange.png",
+      description: "Essential - A low calorie orange flavoured spring water.",
     },
     {
       id: 10,
@@ -76,6 +92,8 @@ const flavors = {
       texture:
         process.env.PUBLIC_URL +
         "images/textures/glaceau/glaceau-dragonfruit.png",
+      description:
+        "Power-C – A low calorie dragon fruit flavoured spring water.",
     },
     {
       id: 11,
@@ -84,6 +102,7 @@ const flavors = {
       texture:
         process.env.PUBLIC_URL +
         "images/textures/glaceau/glaceau-fruit-punch.png",
+      description: "Restore – A low calorie fruit flavoured spring water.",
     },
   ],
 };
@@ -107,6 +126,7 @@ const controller = (state, action) => {
             texture: flavors.coke[0].texture,
             name: "coke",
             flavors: [...flavors.coke],
+            description: flavors.coke[0].description,
           },
         };
       }
@@ -120,6 +140,7 @@ const controller = (state, action) => {
             texture: flavors.costa[0].texture,
             name: "costa",
             flavors: [...flavors.costa],
+            description: flavors.costa[0].description,
           },
         };
       }
@@ -133,21 +154,23 @@ const controller = (state, action) => {
             texture: flavors.glaceau[0].texture,
             name: "glaceau",
             flavors: [...flavors.glaceau],
+            description: flavors.glaceau[0].description,
           },
         };
       }
       break;
     case "SET_SELECTED_FLAVOR":
-      const getTexture = flavors[state.current3DModel.name].find(
-        (texture) => texture.name === action.payload
+      const getFlavor = flavors[state.current3DModel.name].find(
+        (flavor) => flavor.name === action.payload
       );
 
       return {
         ...state,
         current3DModel: {
           ...state.current3DModel,
-          texture: getTexture.texture,
+          texture: getFlavor.texture,
           selectedFlavor: action.payload,
+          description: getFlavor.description,
         },
       };
     case "SET_SHOW_WIRE_FRAME":

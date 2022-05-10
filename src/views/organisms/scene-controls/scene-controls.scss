@@ -47,4 +47,8 @@
     flex-wrap: wrap;
     gap: toRem(20);
   }
+
+  &__paragraph {
+    color: var(--gray-500);
+  }
 }

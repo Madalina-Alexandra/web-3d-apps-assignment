@@ -15,13 +15,13 @@ const SceneControls = () => {
     flavors,
     selectedFlavor,
     showWireFrame,
-    lightIntensity,
-    lightColor,
     showBackground,
     hdri,
     cameraPosition,
     rotate,
+    description,
   } = model.current3DModel;
+
 
   // This handles changing the model
   const handleChangeModel = (model) => {
@@ -95,6 +95,13 @@ const SceneControls = () => {
             ))}
           </div>
         </div>
+        {/* --------- Description --------- */}
+        <div className="scene-controls__control-group">
+          <span className="scene-controls__control-group-span">
+            Description:
+          </span>
+          <p className="scene-controls__paragraph">{description}</p>
+        </div>
         {/* --------- Wireframe checkbox --------- */}
         <div className="scene-controls__control-group">
           <span className="scene-controls__control-group-span">Wireframe:</span>
@@ -104,17 +111,6 @@ const SceneControls = () => {
         </div>
         {/* --------- Lighting options --------- */}
         <div className="scene-controls__control-group">
-          {/* <span className="scene-controls__control-group-span">Lighting:</span>
-          <Select
-            value={lightColor}
-            onChange={handleColorLightChange}
-            label="Color"
-          >
-            <option value="white">White</option>
-            <option value="wed">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-          </Select> */}
           <span className="scene-controls__control-group-span">Lighting:</span>
           <Select value={hdri} onChange={handleHdriChange} label="HDIR Preset">
             <option value="warehouse">Warehouse</option>
@@ -125,16 +121,6 @@ const SceneControls = () => {
           <Checkbox checked={showBackground} onChange={handleShowBackground}>
             Show background
           </Checkbox>
-          {/* <Select
-            value={String(lightIntensity)}
-            onChange={handleIntensityLightChange}
-            label="Intensity"
-          >
-            <option value="100">100%</option>
-            <option value="75">75%</option>
-            <option value="75">50%</option>
-            <option value="75">25%</option>
-          </Select> */}
         </div>
         {/* --------- Camera options --------- */}
         <div className="scene-controls__control-group">
@@ -151,7 +137,9 @@ const SceneControls = () => {
         </div>
         {/* --------- Animation options --------- */}
         <div className="scene-controls__control-group">
-          <span className="scene-controls__control-group-span">Animations:</span>
+          <span className="scene-controls__control-group-span">
+            Animations:
+          </span>
           <Checkbox checked={rotate} onChange={handleRotate}>
             Rotate
           </Checkbox>
