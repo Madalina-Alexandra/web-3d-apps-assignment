@@ -46,8 +46,8 @@ const Hero = () => {
           <span className="hero__span">Check out</span> your favorite drinks
         </Heading4xl>
         <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non
-          nec, neque
+          Welcome to the home of Coca-Cola. Find information about Coca-Cola's
+          range of drinks.
         </Paragraph>
         <div className="hero__buttons">
           <PrimaryButton onClick={handleNavigate}>Start</PrimaryButton>
@@ -73,7 +73,7 @@ const Hero = () => {
           <img
             ref={heroImgRef}
             className="hero__img"
-            src={process.env.PUBLIC_URL + 'images/hero.png'}
+            src={process.env.PUBLIC_URL + "images/hero.png"}
             alt="Animated coke can"
           />
         </div>

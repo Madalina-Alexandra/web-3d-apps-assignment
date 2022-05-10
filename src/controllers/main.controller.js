@@ -158,14 +158,6 @@ const controller = (state, action) => {
           showWireFrame: action.payload,
         },
       };
-    case "SET_LIGHT_COLOR":
-      return {
-        ...state,
-        current3DModel: {
-          ...state.current3DModel,
-          lightColor: action.payload,
-        },
-      };
     case "SET_HDRI":
       return {
         ...state,
@@ -188,14 +180,6 @@ const controller = (state, action) => {
         current3DModel: {
           ...state.current3DModel,
           rotate: action.payload,
-        },
-      };
-    case "SET_LIGHT_INTENSITY":
-      return {
-        ...state,
-        current3DModel: {
-          ...state.current3DModel,
-          lightIntensity: parseInt(action.payload, 10),
         },
       };
     case "SET_CAMERA_POSITION":

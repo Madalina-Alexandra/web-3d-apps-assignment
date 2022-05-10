@@ -40,20 +40,11 @@ const SceneControls = () => {
     dispatch({ type: "SET_SHOW_WIRE_FRAME", payload: !showWireFrame });
   };
 
-  // This handles changing the light color
-  // const handleColorLightChange = (e) => {
-  //   dispatch({ type: "SET_LIGHT_COLOR", payload: e.target.value });
-  // };
-
   // This handles changing the hdRI
   const handleHdriChange = (e) => {
     dispatch({ type: "SET_HDRI", payload: e.target.value });
   };
 
-  // This handles changing the light intensity
-  // const handleIntensityLightChange = (e) => {
-  //   dispatch({ type: "SET_LIGHT_INTENSITY", payload: e.target.value });
-  // };
   const handleShowBackground = () => {
     dispatch({ type: "SET_SHOW_BACKGROUND", payload: !showBackground });
   }

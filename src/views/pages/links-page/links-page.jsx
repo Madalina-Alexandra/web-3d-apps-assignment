@@ -31,9 +31,10 @@ const LinksPage = () => (
             </Paragraph>
           </LinksListItem>
           <LinksListItem
-            to="/"
+            to="#statement-of-originality-section"
             title="Statement of Originality"
             icon={<MedalIcon />}
+            isHash
           >
             <Paragraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit .
@@ -44,7 +45,12 @@ const LinksPage = () => (
               Lorem ipsum dolor sit amet, consectetur adipiscing elit .
             </Paragraph>
           </LinksListItem>
-          <LinksListItem to="/" title="References" icon={<BooksIcon />}>
+          <LinksListItem
+            to="#references-section"
+            title="References"
+            icon={<BooksIcon />}
+            isHash
+          >
             <Paragraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit .
             </Paragraph>

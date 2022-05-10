@@ -17,8 +17,8 @@ const Footer = ({ noLinks }) => (
         <Logo onDark />
         <div className="footer__paragraph">
           <Paragraph onDark>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            pellentesque sociis risus ut.
+            This website is done for the Web 3D Applications assignment - May
+            2022.
           </Paragraph>
         </div>
       </div>
@@ -37,10 +37,16 @@ const Footer = ({ noLinks }) => (
             </a>
           </li>
           <li className="footer__li">
-            <a className="footer__link" href="/">
+            <Link
+              className="footer__link"
+              to={{
+                pathname: "/about",
+                hash: "#statement-of-originality-section",
+              }}
+            >
               <MedalIcon />
               Statement of Originality
-            </a>
+            </Link>
           </li>
           <li className="footer__li">
             <a className="footer__link" href="/">
@@ -49,10 +55,13 @@ const Footer = ({ noLinks }) => (
             </a>
           </li>
           <li className="footer__li">
-            <a className="footer__link" href="/">
+            <Link
+              className="footer__link"
+              to={{ pathname: "/about", hash: "#references-section" }}
+            >
               <BooksIcon />
               References
-            </a>
+            </Link>
           </li>
         </ul>
       )}

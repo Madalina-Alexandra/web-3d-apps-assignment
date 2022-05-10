@@ -6,7 +6,7 @@ const LoadingIcon = (props, ref) => {
   const iconRef = useRef(null);
 
   useEffect(() => {
-    var tl = gsap.timeline({ repeat: -1 });
+    const tl = gsap.timeline({ repeat: -1 });
 
     tl.to(iconRef.current, {
       rotation: 15,
