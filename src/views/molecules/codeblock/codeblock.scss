@@ -1,4 +1,4 @@
-@import '../../../styles/abstracts/mixins';
+@import "../../../styles/abstracts/mixins";
 
 .codeblock {
   padding: toRem(12);
@@ -6,4 +6,10 @@
   background-color: var(--white);
   border-radius: toRem(8);
   color: var(--gray-500);
+
+  &--small {
+    padding: toRem(4) toRem(8);
+    border-radius: toRem(4);
+    @include text-style(text-xs);
+  }
 }

@@ -1,9 +1,17 @@
 @import "../../../styles/abstracts/mixins";
 
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
 .header-desktop {
   display: none;
   padding: toRem(20);
   box-shadow: var(--shadow-sm);
+  background-color: var(--white);
 
   @include respond(md) {
     display: block;

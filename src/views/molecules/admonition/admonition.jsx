@@ -57,3 +57,24 @@ AdmonitionLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
+
+export const AdmonitionCodeblock = ({ children, small }) => {
+  return (
+    <code
+      className={`admonition__codeblock ${
+        small ? "admonition__codeblock--small" : ""
+      }`}
+    >
+      {children}
+    </code>
+  );
+};
+
+AdmonitionCodeblock.propTypes = {
+  children: PropTypes.node.isRequired,
+  small: PropTypes.bool,
+};
+
+AdmonitionCodeblock.defaultProps = {
+  small: false,
+};

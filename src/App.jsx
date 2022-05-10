@@ -19,19 +19,21 @@ const App = () => {
     <div className="App">
       <Suspense fallback={<LoadingPage noBackground />}>
         <Header />
-        {model.modal && <Modal />}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/loading" element={<LoadingPage noBackground />} />
-          <Route
-            path="/loading-gltfs"
-            element={<LoadingPage noBackground loadGLTFS />}
-          />
-          <Route path="/3d-experience" element={<ExperiencePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/links" element={<LinksPage />} />
-        </Routes>
+        <div className="app__wrapper">
+          {model.modal && <Modal />}
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/loading" element={<LoadingPage noBackground />} />
+            <Route
+              path="/loading-gltfs"
+              element={<LoadingPage noBackground loadGLTFS />}
+            />
+            <Route path="/3d-experience" element={<ExperiencePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/links" element={<LinksPage />} />
+          </Routes>
+        </div>
       </Suspense>
     </div>
   );

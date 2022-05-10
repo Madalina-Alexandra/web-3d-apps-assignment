@@ -51,7 +51,7 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
               gltfs.push(item.gltf);
             });
 
-            // Add GLTFS to our modal and set current modal to coke
+            // Add GLTFS to our modal and set current model to coke
             dispatch({ type: 'SET_GLTFS', payload: gltfs });
             dispatch({ type: 'SET_CURRENT_MODEL', payload: 'coke' });
           },

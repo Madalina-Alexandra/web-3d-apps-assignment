@@ -24,6 +24,12 @@
     .admonition__link {
       color: var(--yellow-700);
     }
+
+    .admonition__codeblock {
+      border: toRem(1) solid var(--yellow-200);
+      color: var(--yellow-600);
+      background-color: var(--yellow-100);
+    }
   }
 
   &__title {
@@ -48,5 +54,20 @@
   &__link {
     color: var(--light-blue-700);
     font-weight: 700;
+  }
+
+  &__codeblock {
+    padding: toRem(12);
+    border-radius: toRem(8);
+    border: toRem(1) solid var(--light-blue-200);
+    background-color: var(--light-blue-100);
+    border-radius: toRem(4);
+    color: var(--light-blue-600);
+
+    &--small {
+      padding: toRem(4) toRem(8);
+      border-radius: toRem(4);
+      @include text-style(text-xs);
+    }
   }
 }
