@@ -23,7 +23,12 @@ export const LinksListItem = ({ title, to, icon, children, isHash }) => (
         <div className="links-list__item-content">{children}</div>
       </Link>
     ) : (
-      <a href={to} className="links-list__item-link">
+      <a
+        href={to}
+        className="links-list__item-link"
+        target="_blank"
+        rel="noreferrer"
+      >
         <div className="links-list__item-icon">{icon}</div>
         <h3 className="links-list__item-title">{title}</h3>
         <div className="links-list__item-content">{children}</div>

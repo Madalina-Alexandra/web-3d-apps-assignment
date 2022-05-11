@@ -20,14 +20,23 @@ const LinksPage = () => (
       <Section>
         <Heading4xl>Links</Heading4xl>
         <LinksList>
-          <LinksListItem to="/" title="3D Model" icon={<CubeIcon />}>
+          <LinksListItem
+            to="https://universityofsussex-my.sharepoint.com/:f:/g/personal/mm2086_sussex_ac_uk/EnJllPKi91dOgLDRiu78u4IBGY1Kp2-MZjGfopkM_8Lebg?e=CLPt1f"
+            title="3D Models"
+            icon={<CubeIcon />}
+          >
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+              This is a OneDrive link with the 3D models (GLTF files) in case of
+              an emergency.
             </Paragraph>
           </LinksListItem>
-          <LinksListItem to="/" title="Github repository" icon={<GithubIcon />}>
+          <LinksListItem
+            to="https://github.com/Madalina-Alexandra/web-3d-apps-assignment"
+            title="Github repository"
+            icon={<GithubIcon />}
+          >
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+              This is the github repository for the project.
             </Paragraph>
           </LinksListItem>
           <LinksListItem
@@ -37,12 +46,17 @@ const LinksPage = () => (
             isHash
           >
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+              This a link to Statement of Originality found in the about page
             </Paragraph>
           </LinksListItem>
-          <LinksListItem to="/" title="Site map" icon={<BrowsersIcon />}>
+          <LinksListItem
+            to="#sitemap-section"
+            title="Site map"
+            icon={<BrowsersIcon />}
+            isHash
+          >
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+              This a link to project sitemap found in the about page
             </Paragraph>
           </LinksListItem>
           <LinksListItem
@@ -52,7 +66,7 @@ const LinksPage = () => (
             isHash
           >
             <Paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit .
+              This is a link to the to the References used in this project
             </Paragraph>
           </LinksListItem>
         </LinksList>

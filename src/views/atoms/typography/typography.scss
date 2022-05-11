@@ -27,6 +27,16 @@
   }
 }
 
+.span {
+  color: var(--gray-500);
+  @include text-style(text-base);
+  font-weight: 400;
+
+  &--fullWidth {
+    display: block;
+  }
+}
+
 .link {
   @include text-style(text-base);
   color: var(--red-500);

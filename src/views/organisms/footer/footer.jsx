@@ -25,13 +25,23 @@ const Footer = ({ noLinks }) => (
       {!noLinks && (
         <ul className="footer__ul">
           <li className="footer__li">
-            <a className="footer__link" href="/">
+            <a
+              className="footer__link"
+              href="https://universityofsussex-my.sharepoint.com/:f:/g/personal/mm2086_sussex_ac_uk/EnJllPKi91dOgLDRiu78u4IBGY1Kp2-MZjGfopkM_8Lebg?e=CLPt1f"
+              target="_blank"
+              rel="noreferrer"
+            >
               <CubeIcon />
               3D Models
             </a>
           </li>
           <li className="footer__li">
-            <a className="footer__link" href="/">
+            <a
+              className="footer__link"
+              href="https://github.com/Madalina-Alexandra/web-3d-apps-assignment"
+              target="_blank"
+              rel="noreferrer"
+            >
               <GithubIcon />
               Github repository
             </a>
@@ -49,10 +59,13 @@ const Footer = ({ noLinks }) => (
             </Link>
           </li>
           <li className="footer__li">
-            <a className="footer__link" href="/">
+            <Link
+              className="footer__link"
+              to={{ pathname: "/about", hash: "#sitemap-section" }}
+            >
               <BrowsersIcon />
               Site map
-            </a>
+            </Link>
           </li>
           <li className="footer__li">
             <Link

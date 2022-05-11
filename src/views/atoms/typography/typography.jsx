@@ -41,6 +41,19 @@ Paragraph.defaultProps = {
   onDark: false,
 };
 
+export const Span = ({ children, fullWidth }) => (
+  <p className={`span ${fullWidth ? "span--full" : ""}`}>{children}</p>
+);
+
+Span.propTypes = {
+  children: PropTypes.node.isRequired,
+  fullWidth: PropTypes.bool,
+};
+
+Span.defaultProps = {
+  fullWidth: false,
+};
+
 export const StandardLink = ({ to, children, bold, router, dark }) => {
   if (router)
     return (
@@ -58,6 +71,8 @@ export const StandardLink = ({ to, children, bold, router, dark }) => {
     <a
       href={to}
       className={`link ${bold ? "link--bold" : ""} ${dark ? "link--dark" : ""}`}
+      target="_blank"
+      rel="noreferrer"
     >
       {children}
     </a>

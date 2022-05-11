@@ -7,6 +7,7 @@ import {
   HeadingLg,
   Paragraph,
   StandardLink,
+  Span,
 } from "../../atoms/typography/typography";
 import { List, ListItem } from "../../molecules/list/list";
 import {
@@ -16,6 +17,7 @@ import {
   AdmonitionCodeblock,
 } from "../../molecules/admonition/admonition";
 import Codeblock from "../../molecules/codeblock";
+import Image from "../../atoms/image";
 import Footer from "../../organisms/footer";
 
 const AboutPage = () => {
@@ -59,23 +61,25 @@ const AboutPage = () => {
           <Admonition warning>
             <AdmonitionParagraph>
               As this project uses{" "}
-              <AdmonitionLink to="https://reactjs.org/">React</AdmonitionLink>{" "}
+              <AdmonitionLink to="https://reactjs.org/">React</AdmonitionLink> ,
               it needs to use{" "}
               <AdmonitionLink to="https://webpack.js.org/">
                 Webpack
               </AdmonitionLink>{" "}
               to compile the project into code that can be used in the browser.
               The command to do this is{" "}
-              <AdmonitionCodeblock small>yarn build</AdmonitionCodeblock>{" "}
-              however, the university server has no way of running this command.
-              To get around this the project has been compiled locally so it can
-              be served statically on the university server. Please only mark
-              the code in the{" "}
+              <AdmonitionCodeblock small>yarn build.</AdmonitionCodeblock>{" "}
+              However, the University server has no way of running this command.
+              To get around this, the project has been compiled locally so it
+              can be served statically on the university server. Please only
+              mark the code in the{" "}
               <AdmonitionCodeblock small>non-compiled</AdmonitionCodeblock>{" "}
-              folder, this is the project code before it has been compiled, it
+              folder, this is the project code before it has been compiled. It
               can also be found on{" "}
-              <AdmonitionLink to="#">Github add link!!</AdmonitionLink>. This is
-              because the compiled code is not readable.
+              <AdmonitionLink to="https://github.com/Madalina-Alexandra/web-3d-apps-assignment">
+                Github.
+              </AdmonitionLink>{" "}
+              This is because the compiled code is not readable.
             </AdmonitionParagraph>
           </Admonition>
           <Admonition>
@@ -98,7 +102,7 @@ const AboutPage = () => {
             </AdmonitionParagraph>
           </Admonition>
         </Section>
-        {/* ------------------------------------ Technology list section ------------------------------------ */}
+        {/* ------------------------------------ Technologies list section ------------------------------------ */}
         <Section>
           <HeadingLg>Technologies:</HeadingLg>
           <List>
@@ -107,7 +111,7 @@ const AboutPage = () => {
                 <StandardLink to="https://reactjs.org/" dark bold>
                   React
                 </StandardLink>{" "}
-                , this was the front-end framework used for the project, It
+                - this is the front-end framework used for the project, It
                 allowed the project views to use the{" "}
                 <StandardLink to="https://bradfrost.com/blog/post/atomic-web-design/">
                   Atomic design
@@ -120,8 +124,8 @@ const AboutPage = () => {
                 <StandardLink to="https://greensock.com/gsap/" dark bold>
                   GSAP
                 </StandardLink>{" "}
-                this was the animation library used for the project and was used
-                for animations such as the mobile navigation dropdown.
+                - this is the animation library used for the project and was
+                used for animations such as the mobile navigation dropdown.
               </Paragraph>
             </ListItem>
             <ListItem>
@@ -129,12 +133,13 @@ const AboutPage = () => {
                 <StandardLink to="https://sass-lang.com/" dark bold>
                   SCSS
                 </StandardLink>{" "}
-                this was a CSS preprocessor that allowed this project to use the{" "}
+                - this is a CSS preprocessor that allowed this project to use
+                the{" "}
                 <StandardLink to="https://css-tricks.com/bem-101/">
                   BEM
                 </StandardLink>{" "}
-                naming for its element class names and add advanced functionally
-                to the CSS with the use of{" "}
+                naming convention for its element class names and added advanced
+                functionality to the CSS with the use of{" "}
                 <StandardLink to="https://sass-lang.com/documentation/at-rules/mixin">
                   mixins
                 </StandardLink>{" "}
@@ -150,10 +155,9 @@ const AboutPage = () => {
                 <StandardLink to="https://threejs.org/" dark bold>
                   Three.js
                 </StandardLink>{" "}
-                , this was the 3D framework used to render the 3D elements on
-                the{" "}
+                - this is the 3D framework used to render the 3D elements on the{" "}
                 <StandardLink to="#/3d-experience">3d-experience</StandardLink>{" "}
-                page, it was also use in conjunction with{" "}
+                page. It was also used in conjunction with{" "}
                 <StandardLink to="https://github.com/pmndrs/react-three-fiber">
                   react-three-fiber
                 </StandardLink>{" "}
@@ -169,7 +173,7 @@ const AboutPage = () => {
                 <StandardLink to="https://www.php.net/" dark bold>
                   PHP
                 </StandardLink>{" "}
-                this was the backend language used to build the API that served
+                - the backend language used to build the API that served
                 converted{" "}
                 <StandardLink to="https://www.khronos.org/gltf/">
                   GLTF
@@ -182,7 +186,9 @@ const AboutPage = () => {
                 <StandardLink to="https://www.maxon.net/en/" dark bold>
                   Cinema 4D
                 </StandardLink>{" "}
-                this was the software used to build 3D models for this project.
+                - the software used to build 3D models for this project in
+                conjunction with Redshift for texturing and rendering the images
+                in the gallery. (Adobe Photoshop and Illustrator were used for creating the textures).
               </Paragraph>
             </ListItem>
             <ListItem>
@@ -190,7 +196,7 @@ const AboutPage = () => {
                 <StandardLink to="https://www.figma.com/" dark bold>
                   Figma
                 </StandardLink>{" "}
-                this was the design and prototyping tool that was used to design
+                - this is the design and prototyping tool that was used to design
                 the project screens.
               </Paragraph>
             </ListItem>
@@ -200,22 +206,22 @@ const AboutPage = () => {
         <Section>
           <HeadingLg>How MVC is used in the project</HeadingLg>
           <Paragraph>
-            As this project uses React the modal view controller architecture is
+            As this project uses React, the model view controller architecture is
             set up slightly differently. It works by using the{" "}
             <StandardLink to="https://www.loginradius.com/blog/engineering/react-context-api/">
               React context API
             </StandardLink>
-            , this is not the API that servers the GLTF's to the project
-            frontend (covered in next section) but instead its React's built-in
+            , this is not the API that servers the GLTF data to the project
+            frontend (covered in next section) but instead it's React's built-in
             state management solution similar to{" "}
             <StandardLink to="https://redux.js.org/">Redux</StandardLink>.
           </Paragraph>
           <Paragraph>
             The project has a main model called{" "}
             <Codeblock small>MainAppProvider</Codeblock> found in the{" "}
-            <Codeblock small>main.model.js</Codeblock> file, this allows all of
+            <Codeblock small>main.model.js</Codeblock> file. This allows all of
             the application's views to have access to the state object. When the
-            application first loads it is initialized with the{" "}
+            application first loads, it is initialized with the{" "}
             <Codeblock small>initialState</Codeblock> object shown below.
           </Paragraph>
           <Codeblock>
@@ -228,10 +234,10 @@ const AboutPage = () => {
             {`}`}
           </Codeblock>
           <Paragraph>
-            However, if the user wants to make an update to a view the
-            application needs a way to do this, this done with the application
+            However, if the user wants to make an update to a view, the
+            application needs a way to do this, this is done with the application
             controller in <Codeblock small>main.controller.js</Codeblock>. In
-            react these controllers are called actions and the example below
+            React these controllers are called actions and the example below
             shows the <Codeblock small>SET_SHOW_WIRE_FRAME</Codeblock>{" "}
             controller. This controller updates the model to show or hide the
             wireframe for the 3d model in the{" "}
@@ -285,8 +291,8 @@ const AboutPage = () => {
           <Paragraph>
             This application makes use of a small PHP REST API to serve JSON
             data that is then converted to a GLTF to be rendered as a 3D model
-            on the 3D-experience page. Because of this the application needs a
-            way of making asynchronous requests. Lucky, React has the{" "}
+            on the 3D-experience page. Because of this, the application needs a
+            way of making asynchronous requests. Luckily, React has the{" "}
             <StandardLink to="https://reactjs.org/docs/hooks-reference.html#useeffect">
               useEffect
             </StandardLink>{" "}
@@ -338,67 +344,185 @@ const AboutPage = () => {
             <br />
             {`\u00A0 if (model && model.gltfs.length > 0 && loadGLTFS) {`}
             <br />
-            {`\u00A0 navigate('/3d-experience');`}
+            {`\u00A0 \u00A0 navigate('/3d-experience');`}
             <br />
             {`\u00A0 }`}
             <br />
             {`}, [model.gltfs]);`}
-            <br />
-            {``}
-            <br />
-            {``}
-            <br />
-            {``}
           </Codeblock>
         </Section>
         {/* ------------------------------------ Sitemap section ------------------------------------ */}
         <Section id="sitemap-section">
           <Heading4xl>Sitemap</Heading4xl>
+          <Image
+            src={process.env.PUBLIC_URL + "images/sitemap/sitemap.png"}
+            alt="Site map"
+            figcaption="Project sitemap"
+            noHover
+          />
         </Section>
         {/* ------------------------------------ References section ------------------------------------ */}
         <Section id="references-section">
           <Heading4xl>References</Heading4xl>
           <Paragraph>
-            This project used Cinema4D (https://www.maxon.net/en/cinema-4d) for
-            3D modelling as well as Redshift (https://www.maxon.net/en/redshift)
-            for texturing and rendering images.
+            CocaCola GB, 2022. Diet Coke | Nutrition Facts & Ingredients |
+            Coca-Cola GB.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.coca-cola.co.uk/brands/diet-coke">
+                https://www.coca-cola.co.uk/brands/diet-coke
+              </StandardLink>
+            </Span>
           </Paragraph>
           <Paragraph>
-            Diet coke descriptions -
-            https://www.coca-cola.co.uk/brands/diet-coke
+            CocaCola GB, 2022. Costa Coffee Ready-to-Drink | Nutrition Facts &
+            Ingredients | Coca-Cola GB.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.coca-cola.co.uk/brands/costa-coffee">
+                https://www.coca-cola.co.uk/brands/costa-coffee
+              </StandardLink>
+            </Span>
           </Paragraph>
           <Paragraph>
-            Vitamin water descriptions -
-            https://www.coca-cola.co.uk/brands/glaceau-vitaminwater
+            CocaCola GB, 2022. GLACÉAU vitaminwater | Nutrition Facts &
+            Ingredients | Coca-Cola GB.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.coca-cola.co.uk/brands/glaceau-vitaminwater">
+                https://www.coca-cola.co.uk/brands/glaceau-vitaminwater
+              </StandardLink>
+            </Span>
           </Paragraph>
           <Paragraph>
-            Design inspiration - https://www.refactoringui.com/
-          </Paragraph>
-          <Paragraph>Design inspiration - https://tailwindcss.com/</Paragraph>
-          <Paragraph>
-            Three.js tutorial series, used to learn Three.js -
-            https://threejs-journey.com/
-          </Paragraph>
-          <Paragraph>
-            Sitemap builder -
-            https://www.figma.com/community/file/836606323472757934
-          </Paragraph>
-        </Section>
-        <Section>
-          <HeadingLg>Libraries used:</HeadingLg>
-          <Paragraph>react - https://reactjs.org/</Paragraph>
-          <Paragraph>react-router - https://reactrouter.com/</Paragraph>
-          <Paragraph>
-            react-three - https://github.com/pmndrs/react-three-fiber
+            DaFont, 2022. Coca Cola Font Free.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.dafontfree.io/coca-cola-font/">
+                https://www.dafontfree.io/coca-cola-font/
+              </StandardLink>
+            </Span>
           </Paragraph>
           <Paragraph>
-            react-three-drei - https://github.com/pmndrs/drei
+            Gemayel, T., 2022. Site Map - Figma.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.figma.com/community/file/836606323472757934">
+                https://www.figma.com/community/file/836606323472757934
+              </StandardLink>
+            </Span>
           </Paragraph>
-          <Paragraph>gsap - https://greensock.com/gsap/</Paragraph>
           <Paragraph>
-            node-sass - https://www.npmjs.com/package/node-sass
+            GreenSock Inc., 2022. GSAP - GreenSock.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://greensock.com/gsap/">
+                https://greensock.com/gsap/
+              </StandardLink>
+            </Span>
           </Paragraph>
-          <Paragraph>three.js - https://threejs.org/</Paragraph>
+          <Paragraph>
+            Helena, T. F., 2022. Phosphor Icons.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.figma.com/community/plugin/898620911119764089/Phosphor-Icons">
+                https://www.figma.com/community/plugin/898620911119764089/Phosphor-Icons
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Indian Type Foundry, Johnny Pinhorn, 2022. Poppins - Google Fonts.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://fonts.google.com/specimen/Poppins">
+                https://fonts.google.com/specimen/Poppins
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Meta Platforms Inc., 2022. React - A JavaScript library for building
+            user interfaces.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://reactjs.org/">
+                https://reactjs.org/
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Multiple, 2022. pmndrs/drei: useful helpers for react-three-fiber.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://github.com/pmndrs/drei">
+                https://github.com/pmndrs/drei
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Multiple, 2022. pmndrs/react-three-fiber: A React renderer for
+            Three.js.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://github.com/pmndrs/react-three-fiber">
+                https://github.com/pmndrs/react-three-fiber
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Nesbitt, A., 2022. node-sass - npm.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.npmjs.com/package/node-sass">
+                https://www.npmjs.com/package/node-sass
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Remix, 2022. Declarative routing for React apps at any scale | React
+            Router.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://reactrouter.com/">
+                https://reactrouter.com/
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Simon, B., 2022. Three.js Journey - Learn WebGL with Three.js.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://threejs-journey.com/">
+                https://threejs-journey.com/
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            three.js, 2022. Three.js - JavaScript 3D Library.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://threejs.org/">
+                https://threejs.org/
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Wathan, A., 2022. Tailwind CSS.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://tailwindcss.com/">
+                https://tailwindcss.com/
+              </StandardLink>
+            </Span>
+          </Paragraph>
+          <Paragraph>
+            Wathan, A. & Schoger, S., 2022. Refactoring UI.
+            <Span full>
+              Available at:{" "}
+              <StandardLink to="https://www.refactoringui.com/">
+                https://www.refactoringui.com/
+              </StandardLink>
+            </Span>
+          </Paragraph>
         </Section>
       </Container>
       <Footer />
