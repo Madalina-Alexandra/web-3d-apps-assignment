@@ -46,9 +46,6 @@
     align-items: center;
     position: relative;
     height: 100%;
-    background: url("../../../images/hero-mobile-bg-2.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
 
     @include respond(md) {
       background: transparent;

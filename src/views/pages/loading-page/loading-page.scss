@@ -6,16 +6,8 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background: url("../../../images/loading-page-bg-mobile.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
   overflow-x: hidden;
 
-  @include respond(md) {
-    background: url("../../../images/loading-page-bg-desktop.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
 
   &--no-bg {
     background: none;
