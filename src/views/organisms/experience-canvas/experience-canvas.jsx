@@ -5,11 +5,13 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { MainAppModel } from "../../../models/main.model";
 import { Environment, OrbitControls } from "@react-three/drei";
+import useWindowDimensions from "../../../hooks/use-window-dimensions";
 
 const ExperienceCanvas = () => {
   // Get app modal
-  const { model } = useContext(MainAppModel);
+  const { model, dispatch } = useContext(MainAppModel);
   const {
+    name,
     showWireFrame,
     texture,
     flavors,
@@ -19,6 +21,8 @@ const ExperienceCanvas = () => {
     showBackground,
     cameraPosition,
     rotate,
+    scale,
+    position,
   } = model.current3DModel;
 
   // If no gltfs in model load the loading page
@@ -107,6 +111,8 @@ const ExperienceCanvas = () => {
     });
     return (
       <primitive
+        scale={scale}
+        position={position}
         ref={primitiveRef}
         object={loadedGltf.scene}
         rotation={handleRotation()}
@@ -114,6 +120,31 @@ const ExperienceCanvas = () => {
     );
   };
 
+
+  const { width } = useWindowDimensions();
+  useEffect(() => {
+    // Mobile
+    if (width < 1024) {
+      dispatch({
+        type: "SET_MODEL_POSITION",
+        payload: {
+          name,
+          screenSize: "mobile",
+        },
+      });
+    }
+
+    // Desktop
+    if (width >= 1024) {
+       dispatch({
+         type: "SET_MODEL_POSITION",
+         payload: {
+           name,
+           screenSize: "desktop",
+         },
+       });
+    }
+  }, [width]);
 
   return (
     <Canvas>

@@ -5,6 +5,7 @@ import Tab from "../../atoms/buttons/tab";
 import FlavorButton from "../../atoms/buttons/flavor-button";
 import Checkbox from "../../atoms/inputs/checkbox/checkbox";
 import Select from "../../atoms/select";
+import useWindowDimensions from "../../../hooks/use-window-dimensions";
 
 const SceneControls = () => {
   // Get app modal
@@ -22,12 +23,16 @@ const SceneControls = () => {
     description,
   } = model.current3DModel;
 
+  const { width } = useWindowDimensions();
 
   // This handles changing the model
   const handleChangeModel = (model) => {
     dispatch({
       type: "SET_CURRENT_MODEL",
-      payload: model,
+      payload: {
+        modelName: model,
+        screen: width >= 1024 ? "desktop" : "mobile",
+      },
     });
   };
 
@@ -47,7 +52,7 @@ const SceneControls = () => {
 
   const handleShowBackground = () => {
     dispatch({ type: "SET_SHOW_BACKGROUND", payload: !showBackground });
-  }
+  };
 
   const handleRotate = () => {
     dispatch({ type: "SET_ROTATE", payload: !rotate });

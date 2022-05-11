@@ -23,7 +23,11 @@ const ExperiencePage = () => {
     <div className="experience-page">
       <div className="experience-page__container">
         <div className="experience-page__canvas-container">
-          <div onMouseDown={handleTooltip} className="experience-page__canvas">
+          <div
+            onMouseDown={handleTooltip}
+            onTouchStart={handleTooltip}
+            className="experience-page__canvas"
+          >
             <ExperienceCanvas />
           </div>
           {model.showTooltip && (

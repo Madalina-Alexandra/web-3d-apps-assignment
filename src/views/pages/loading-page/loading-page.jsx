@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./loading-page.scss";
 import { MainAppModel } from "../../../models/main.model";
 import LoadingIcon from "../../atoms/icons/loading-icon";
+import useWindowDimensions from "../../../hooks/use-window-dimensions";
 
 
 const LoadingPage = ({ noBackground, loadGLTFS }) => {
@@ -11,6 +12,8 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
   const { model, dispatch } = useContext(MainAppModel);
 
   const navigate = useNavigate();
+
+  const { width } = useWindowDimensions();
 
   /**
    * If no gltfs in the model make and API request to get them,
@@ -20,7 +23,7 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
    */
   useEffect(() => {
     if (model.gltfs.length === 0 && loadGLTFS) {
-      fetch('http://users.sussex.ac.uk/~mm2086/api/post/read.php')
+      fetch('http://users.sussex.ac.uk/~mm2086/3dapp/assignment/api/post/read.php')
         .then((res) => res.json())
         .then(
           (result) => {
@@ -53,7 +56,13 @@ const LoadingPage = ({ noBackground, loadGLTFS }) => {
 
             // Add GLTFS to our modal and set current model to coke
             dispatch({ type: 'SET_GLTFS', payload: gltfs });
-            dispatch({ type: 'SET_CURRENT_MODEL', payload: 'coke' });
+            dispatch({
+              type: "SET_CURRENT_MODEL",
+              payload: {
+                modelName: 'coke',
+                screen: width >= 1024 ? "desktop" : "mobile",
+              },
+            });
           },
           (error) => {
             console.log(error);

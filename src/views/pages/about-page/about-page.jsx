@@ -47,11 +47,10 @@ const AboutPage = () => {
           <Heading4xl>About</Heading4xl>
           <HeadingLg>Statement of Originality</HeadingLg>
           <Paragraph>
-            This project is submitted as part requirement for H7006: Web 3D
+            This project is submitted as requirement for H7006: Web 3D
             Applications at the University of Sussex - May 2022. It is the
             product of my own labour except where indicated otherwise.
-            References can be found{" "}
-            <StandardLink to="#">here add link!!</StandardLink>
+            References can be found at the bottom of this page.
           </Paragraph>
         </Section>
         {/* ------------------------------------ Intro section ------------------------------------ */}
@@ -271,7 +270,7 @@ const AboutPage = () => {
           <Codeblock>
             {`const { model, dispatch } = useContext(MainAppModel);`} <br />
             <br />
-            {`// Some code`} <br />
+            {`// Some code...`} <br />
             <br />
             {`// This handles showing showing the wireframe`} <br />
             {`const handleShowWireframe = () => {`} <br />
@@ -352,10 +351,54 @@ const AboutPage = () => {
             {``}
           </Codeblock>
         </Section>
+        {/* ------------------------------------ Sitemap section ------------------------------------ */}
+        <Section id="sitemap-section">
+          <Heading4xl>Sitemap</Heading4xl>
+        </Section>
         {/* ------------------------------------ References section ------------------------------------ */}
         <Section id="references-section">
           <Heading4xl>References</Heading4xl>
-          {/* <HeadingLg></HeadingLg> */}
+          <Paragraph>
+            This project used Cinema4D (https://www.maxon.net/en/cinema-4d) for
+            3D modelling as well as Redshift (https://www.maxon.net/en/redshift)
+            for texturing and rendering images.
+          </Paragraph>
+          <Paragraph>
+            Diet coke descriptions -
+            https://www.coca-cola.co.uk/brands/diet-coke
+          </Paragraph>
+          <Paragraph>
+            Vitamin water descriptions -
+            https://www.coca-cola.co.uk/brands/glaceau-vitaminwater
+          </Paragraph>
+          <Paragraph>
+            Design inspiration - https://www.refactoringui.com/
+          </Paragraph>
+          <Paragraph>Design inspiration - https://tailwindcss.com/</Paragraph>
+          <Paragraph>
+            Three.js tutorial series, used to learn Three.js -
+            https://threejs-journey.com/
+          </Paragraph>
+          <Paragraph>
+            Sitemap builder -
+            https://www.figma.com/community/file/836606323472757934
+          </Paragraph>
+        </Section>
+        <Section>
+          <HeadingLg>Libraries used:</HeadingLg>
+          <Paragraph>react - https://reactjs.org/</Paragraph>
+          <Paragraph>react-router - https://reactrouter.com/</Paragraph>
+          <Paragraph>
+            react-three - https://github.com/pmndrs/react-three-fiber
+          </Paragraph>
+          <Paragraph>
+            react-three-drei - https://github.com/pmndrs/drei
+          </Paragraph>
+          <Paragraph>gsap - https://greensock.com/gsap/</Paragraph>
+          <Paragraph>
+            node-sass - https://www.npmjs.com/package/node-sass
+          </Paragraph>
+          <Paragraph>three.js - https://threejs.org/</Paragraph>
         </Section>
       </Container>
       <Footer />

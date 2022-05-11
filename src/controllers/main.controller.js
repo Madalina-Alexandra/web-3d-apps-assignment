@@ -107,6 +107,47 @@ const flavors = {
   ],
 };
 
+const setPositionAndScale = (name, screenSize) => {
+  let position;
+  let scale;
+  // Coke
+  if (name === "coke") {
+    if (screenSize === "mobile") {
+      position = [0, -1, 0];
+      scale = 1.5;
+    }
+    if (screenSize === "desktop") {
+      position = [0, -1.5, 0];
+      scale = 1.25;
+    }
+  }
+  // Costa
+  if (name === "costa") {
+    if (screenSize === "mobile") {
+      position = [0, -0.25, 0];
+      scale = 1.1;
+    }
+    if (screenSize === "desktop") {
+      position = [0, -0.5, 0];
+      scale = 1.25;
+    }
+  }
+
+  // glaceau
+  if (name === "glaceau") {
+    if (screenSize === "mobile") {
+      position = [0, -0.5, 0];
+      scale = 0.8;
+    }
+    if (screenSize === "desktop") {
+      position = [0, -1.5, 0];
+      scale = 1;
+    }
+  }
+
+  return { position, scale };
+};
+
 const controller = (state, action) => {
   switch (action.type) {
     case "SET_LOADING":
@@ -116,7 +157,8 @@ const controller = (state, action) => {
     case "SET_GLTFS":
       return { ...state, gltfs: action.payload };
     case "SET_CURRENT_MODEL":
-      if (action.payload === "coke") {
+      const { modelName, screen } = action.payload;
+      if (modelName === "coke") {
         return {
           ...state,
           current3DModel: {
@@ -127,10 +169,12 @@ const controller = (state, action) => {
             name: "coke",
             flavors: [...flavors.coke],
             description: flavors.coke[0].description,
+            position: setPositionAndScale("coke", screen).position,
+            scale: setPositionAndScale("coke", screen).scale,
           },
         };
       }
-      if (action.payload === "costa") {
+      if (modelName === "costa") {
         return {
           ...state,
           current3DModel: {
@@ -141,10 +185,12 @@ const controller = (state, action) => {
             name: "costa",
             flavors: [...flavors.costa],
             description: flavors.costa[0].description,
+            position: setPositionAndScale("costa", screen).position,
+            scale: setPositionAndScale("costa", screen).scale,
           },
         };
       }
-      if (action.payload === "glaceau") {
+      if (modelName === "glaceau") {
         return {
           ...state,
           current3DModel: {
@@ -155,6 +201,8 @@ const controller = (state, action) => {
             name: "glaceau",
             flavors: [...flavors.glaceau],
             description: flavors.glaceau[0].description,
+            position: setPositionAndScale("glaceau", screen).position,
+            scale: setPositionAndScale("glaceau", screen).scale,
           },
         };
       }
@@ -181,6 +229,18 @@ const controller = (state, action) => {
           showWireFrame: action.payload,
         },
       };
+    case "SET_MODEL_POSITION":
+      const { name, screenSize } = action.payload;
+
+      return {
+        ...state,
+        current3DModel: {
+          ...state.current3DModel,
+          position: setPositionAndScale(name, screenSize).position,
+          scale: setPositionAndScale(name, screenSize).scale,
+        },
+      };
+
     case "SET_HDRI":
       return {
         ...state,

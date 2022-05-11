@@ -9,6 +9,7 @@
   background: url("../../../images/loading-page-bg-mobile.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-x: hidden;
 
   @include respond(md) {
     background: url("../../../images/loading-page-bg-desktop.svg");
