@@ -8,6 +8,19 @@
 
     color: var(--gray-500);
   }
+
+  &__input-container {
+    position: relative;
+    display: flex;
+
+    svg {
+      position: absolute;
+      height: toRem(16);
+      width: toRem(16);
+      stroke: var(--white);
+    }
+  }
+
   &__input {
     appearance: none;
 
@@ -22,13 +35,8 @@
     }
 
     &:checked::before {
-      content: url("../../../../images/icons/checkbox-checked-icon.svg");
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: var(--red-600);
       border: toRem(1) solid var(--red-600);
-      margin-top: toRem(1);
     }
   }
 }

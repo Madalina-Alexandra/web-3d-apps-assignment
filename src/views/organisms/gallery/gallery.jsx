@@ -136,9 +136,9 @@ const Gallery = () => {
       </div>
       {/* Desktop */}
       <div className="gallery__container gallery__container--desktop">
-        {[...images.slice(0, amountOfImagesToShow)].map((image) => (
+        {[...images.slice(0, amountOfImagesToShow)].map((image, index) => (
           <Image
-            key={crypto.randomUUID()}
+            key={`image.figcaption--${index}`}
             src={image.thumb}
             alt={image.figcaption}
             figcaption={image.figcaption}

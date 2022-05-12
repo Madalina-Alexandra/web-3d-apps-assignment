@@ -188,7 +188,8 @@ const AboutPage = () => {
                 </StandardLink>{" "}
                 - the software used to build 3D models for this project in
                 conjunction with Redshift for texturing and rendering the images
-                in the gallery. (Adobe Photoshop and Illustrator were used for creating the textures).
+                in the gallery. (Adobe Photoshop and Illustrator were used for
+                creating the textures).
               </Paragraph>
             </ListItem>
             <ListItem>
@@ -196,8 +197,8 @@ const AboutPage = () => {
                 <StandardLink to="https://www.figma.com/" dark bold>
                   Figma
                 </StandardLink>{" "}
-                - this is the design and prototyping tool that was used to design
-                the project screens.
+                - this is the design and prototyping tool that was used to
+                design the project screens.
               </Paragraph>
             </ListItem>
           </List>
@@ -206,8 +207,8 @@ const AboutPage = () => {
         <Section>
           <HeadingLg>How MVC is used in the project</HeadingLg>
           <Paragraph>
-            As this project uses React, the model view controller architecture is
-            set up slightly differently. It works by using the{" "}
+            As this project uses React, the model view controller architecture
+            is set up slightly differently. It works by using the{" "}
             <StandardLink to="https://www.loginradius.com/blog/engineering/react-context-api/">
               React context API
             </StandardLink>
@@ -235,12 +236,13 @@ const AboutPage = () => {
           </Codeblock>
           <Paragraph>
             However, if the user wants to make an update to a view, the
-            application needs a way to do this, this is done with the application
-            controller in <Codeblock small>main.controller.js</Codeblock>. In
-            React these controllers are called actions and the example below
-            shows the <Codeblock small>SET_SHOW_WIRE_FRAME</Codeblock>{" "}
-            controller. This controller updates the model to show or hide the
-            wireframe for the 3d model in the{" "}
+            application needs a way to do this, this is done with the
+            application controller in{" "}
+            <Codeblock small>main.controller.js</Codeblock>. In React these
+            controllers are called actions and the example below shows the{" "}
+            <Codeblock small>SET_SHOW_WIRE_FRAME</Codeblock> controller. This
+            controller updates the model to show or hide the wireframe for the
+            3d model in the{" "}
             <StandardLink to="#/3d-experience">3d-experience</StandardLink> page
             based on the <Codeblock small>action.payload</Codeblock>.
           </Paragraph>
@@ -299,6 +301,10 @@ const AboutPage = () => {
             hook that allows the application to make a fetch request to the API
             to get the JSON data it needs. The code for this can be found in{" "}
             <Codeblock small>loading-page.jsx</Codeblock> and is shown below.
+            Note that the <Codeblock small>useEffect</Codeblock> hook can only be use
+            inside components (views) thats why the AJAX request is not made in
+            a controller or in the model's{" "}
+            <Codeblock small>initialState</Codeblock> object.
           </Paragraph>
           <Codeblock>
             {`useEffect(() => {`}
