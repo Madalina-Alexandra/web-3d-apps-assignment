@@ -2,7 +2,7 @@
 
 ## Statement of Originality
 
-This project is submitted as requirement for H7006: Web 3D Applications at the University of Sussex - May 2022. It is the product of my own labour except where indicated otherwise. References can be found at the bottom of this page.
+This project is submitted as requirement for H7006: Web 3D Applications at the University of Sussex - May 2022. It is the product of my own labour except where indicated otherwise. References can be found [here](http://users.sussex.ac.uk/~mm2086/3dapp/assignment/index.html#/about#references-section).
 
 
 ## Important notes
